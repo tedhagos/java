@@ -1,0 +1,160 @@
+== Variable and Data Types
+
+- [ ] Literals
+- [ ] New ways to write literals in Java 8
+
+When we program, we create and manipulate things. This is usually done by adding, subtracting, dividing, multiplying or comparing them. Sometimes we mash them together like when we combine two words.  We also store things so that we can retrieve them for later use. This is an oversimplification of what programmers do but at a high level, that should be pretty close.
+
+Before we can create and manipulate things, we need to know something about these things, what their nature is and what we can do with them. There are things we need to count, measure and sometimes compare. Java has this concept of _types_, it is its way of classifying things. 
+
+=== Variables
+
+A variable is a container of data. Think of it like a box where you could store stuff. You would put something into this box and then store it away. At some point in time, you may get this box, take out what’s inside and replace it with something else. If you have other boxes where you store other stuff, you could use labels so you could easily locate and identify them. A programming variable isn’t much different. It operates exactly like that.
+
+When we create a variable, we are setting aside an area in computer memory. We are giving a variable a name, so that later on when we need it, we will retrieve it by name. Using  variables in programming involves (a) declaring a variable (b) initializing that variable and giving it initial value (c) retrieving the data held by the variable and (d) replacing the data held by the variable with something else.
+
+.Listing 6-1
+----
+String word; //<1>
+word = "Hello world"; //<2>
+System.out.println(word); // prints "Hello world"
+word = "Hello there"; //<3>
+System.out.println(word); // prints "Hello there"
+----
+
+<1> Declare a variable named `word`
+<2> Initialize the variable with the value "Hello World"
+<3> Replace the contents of the variable
+
+In the first line of Listing 6-1, we declared a variable that will hold a String data. We did not initialize the variable at the point of declaration. Its perfectly okay to do that. Sometimes it's necessary to do that especially if the initial value of the variable will be determined much later in the program.  However, if you do know the initial value of the variable, you may write the declaration and initialization on the same line.
+
+----
+String word = "Hello World";
+----
+
+
+=== Types
+
+A variable declaration has two parts, (a) what kind of data is it supposed to hold and (b) the name of the variable. In our example, the type of the variable is String and its name is word. We don't always have to use String when declaring variable but we always have to specify what kind of data we are declaring.
+
+Java is a statically and strongly typed language. As such, when we create variables, we need to tell the compiler what kind of data it will hold so that it can (a) allocate the appropriate memory for it and (b) it can do all sorts of type checking on how we are using the variable. Type checking is very useful for programmers, even more so for beginning programmers. It helps us in so many ways, it will not let us do silly things  like the following.
+
+----
+int a = 10;
+String b = "10";
+a = b; //<1>
+
+String c = "Hello";
+String d = "World";
+String e = c + d;
+String f = c - d;//<2>
+----
+
+<1> Incompatible types. You cannot assign a String to a number
+<2> Subtraction cannot be performed on Strings
+
+See, type checking won't let us disgrace ourselves. It catches silly mistakes at compile time so that you won't have to deal with these errors at runtime where they are harder to catch. 
+
+[NOTE]
+====
+All variables needs to be declared and initialized before they can be used
+
+.Correct usage
+----
+int i = 10;
+i = i + 1;
+System.out.println(i);
+----
+
+.Wrong usage
+----
+int i = 1;
+System.out.println(i + j); //<1>
+----
+<1> The j variable was not defined
+====
+
+String is a specific kind of data in Java. It is used to hold words, or more specifically, a collection of alphanumeric characters. So if you would like to store and manipulate things like an address, phone number, email, last name, first name etc, you should use the String type.
+
+If String was the only kind of data you can work with, that would limit the usefulness of your programs terribly. Happily, that's not the case. We can work with other kinds of data like numbers, booleans, dates etc. 
+
+If you need to count something we can use the types used for counting (_byte, short, int_ and _long_). If we need to measure something, we can use _float_ and _double_. If we need to store the result of comparing things (truth or falsity) we can use the _boolean_ type.
+
+So why does Java have 4 types for counting things and 2 types for measuring things? It's got something to do with capacity. A short can hold much more data than a byte. An int can hold more data than a short and long is on top of the food chain. A double holds much bigger data than a float, and it is more precise too. 
+
+NOTE: float has a precision of 7 digits while double has 15 digits precision, after the decimal point, that is.
+
+.Primitive types
+**byte**::  
+A 1 byte signed integer. Default value is 0
+**short**::
+A 2 byte signed integer. Also defaults to 0
+**int**::
+A 4 byte integer. Same as the first two, also defaults to 0
+**long**::
+The longest of all the whole numbers. This is an 8 byte integer. Defaults to 0 also when not explicitly assigned a value
+**float**::
+A signed 4 byte floating point (IEEE 754 32 bit floating point)
+**double**::
+Also a signed floating point but this one is 64 bits
+**char**::
+16 bit unicode character. Lowest value is 0 and highest value is 65535 (\u0000 to \uFFFF)
+**boolean**::
+Use this when storing values that are results of comparisons , for example
++
+----
+boolean z = (a > b)
+----
++
+There are two literal values you can use for the boolean type; `true` and `false`. Listing 6-2 shows some basic usage
++
+.Listing 6-2
+----
+boolean a = false;
+boolean b; //<1>
+System.out.println(a); //prints false
+System.out.println(b); //prints false also
+----
+<1> Default value for a boolean type is false
+
+TIP: There is a formula to determine the lowest and highest value for whole numbers. The lowest value is equal to  (-1) **2** ^(n-1)^ and the highest value is **2** ^(n-1)^ - 1, where _n_=number of bits. So, for a byte which is 8 bits long (1 byte is 8 bits), lowest value = (-1) **2** ^8-1^ = -128
+
+=== References Types
+
+The native types discussed in the previous section are called primitive types because they are part of the language definition. They are fixed at eight. We cannot add or define  new primitive types. Happily, Java allows us to create new types of our own. These user defined types are called reference types. We will not be discussing how to create and work with reference types in this chapter, we will defer  that discussion for later. But it is important to say that creation of new types involves writing classes and creating objects. 
+
+The main difference between a reference and a primitive type is their size. Primitives cannot get any bigger than 8 bytes. They are scalar data and the biggest data type we can define is a long two's complement integer. And that is an 8 byte integer. The size of a reference type on the other hand, cannot be determined as easily as a primitive's because it is after all, a composite kind of data.
+
+NOTE: Scalar value is one unit of data. Just like in algebra, a scalar value is a single number as opposed to either a vector or matrix which are composites
+
+.Listing 6-3
+----
+int x = 95;
+int y = 50;
+----
+
+Listing 6-3 shows example of two primitive variables. _X_ contains a single data, which is 95 and _Y_ contains only the integer 50. 
+
+.Listing 6-4
+----
+class Point {
+  int x = 95;
+  int y = 50
+}
+----
+
+Listing 6-4 shows how to define a new type called Point. It was made possible by aggregating two integer variables.
+
+TIP: In case you are wondering, _String_ is a reference type. It is part of the JDK library. There is a full discussion of Strings in later chapters
+
+
+=== Exercises
+
+**Exercise 6-1**::
+Compute for the lowest value and highest value of long, short, byte and int
+**Exercise 6-2**::
+Make a program that creates variables for each of 8 primitive types and print out each one of them
+
+
+<<<
+

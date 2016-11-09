@@ -1,0 +1,128 @@
+
+
+# Introduction
+ - How I will treat the content
+ - What will I use, why am I using them (tools, approach, how different from OCJP)
+ - What I will cover, what I will not cover
+ 
+# Overview
+
+- What you need, software, hardware, wetware
+- What will we use (no IDE, why) 
+- Some word about the IDEs
+
+- cover some setup here
+- You will be working on the command line
+
+Assumptions that I made
+
+- You know your operating system, this book is not an OS introduction
+- You know the basic operations on your OS such as creating a file, fixing permissions etc
+
+# Programming Concepts
+
+- Brief introduction only, the most important concepts. But not all
+
+
+# Basic Concepts
+
+- Virtual Machine
+- Programming Concepts
+- Editions of Java
+
+# Hello World
+
+- What a java source file is
+- What a byte code is
+- How to compile it
+- Don't lose heart, you don't need to understand all the rules right now. But which of these rules or Java characteristics should one understand or at least believe so that we can get a foothold on some stuff
+- Glossary
+
+- escape sequences 
+
+
+
+# Program Structure
+
+
+- Discuss style issues here
+- K and R curly braces
+- case sensitivity
+- comments
+- Blank space
+
+
+# Variables
+
+- Include a system.in or scanner example here 
+
+
+
+
+# Types
+
+static, strongly typed
+as opposed to weakly and dynamically typed or duck typing. Type inference, you have to do research on Java type inference
+
+
+# Keywords
+
+
+# Identifiers
+
+
+# Operators
+
+
+# Expressions, Statements and Blocks
+
+
+# Printing things
+
+
+# Decision Making
+
+
+# Looping
+
+# Exceptions
+
+# Closer look at Methods
+
+
+# Objects
+
+
+# Classes
+
+# Accessibility
+
+# Strings
+
+
+# Packages
+
+
+# Project Builders
+- This should be for another short book
+
+# Common Collections
+- This should be for another short book
+
+# Generics 
+- This should be included in common collections
+
+
+# Database Programming
+
+
+# Concurrency
+- This should be for another short book
+
+# What's new Java 8
+
+
+# What's coming in Java 9
+
+
+ 

@@ -1,0 +1,27 @@
+:chapter-label: Chapter -
+:doctype: book
+:toc: macro
+:toc-title: Contents
+:toclevels: 1
+:source-highlighter: pygments
+:stylesheet: style.css
+:pygments-style: trac
+:icons:
+:data-uri:
+
+
+Java Lessons
+============
+
+
+Ted Hagos <ted@thelogbox.com>
+v1.0, 2016-17
+
+
+
+This is the optional preamble (an untitled section body). Useful for
+writing simple sectionless documents consisting only of a preamble.
+
+
+<<<
+

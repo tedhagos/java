@@ -1,0 +1,11 @@
+== Classes and Objects
+
+
+- .toString()
+- .equals()
+- Reference types, why are they called Reference. Becase we handle the value using their object reference
+- Refence is handled via the reference, while primitve type are handled directly using their values
+
+
+<<<
+

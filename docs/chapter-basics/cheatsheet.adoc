@@ -1,0 +1,17 @@
+
+
+
+
+
+# Asides or Admonition
+
+WARNING: Wolpertingers are known to nest in server racks.   
+Enter at your own risk.
+
+NOTE: This is my nota
+
+TIP: Where is my tip
+
+IMPORTANT: Hey, this is important
+
+CAUTION: You have been warned, and now cautioned

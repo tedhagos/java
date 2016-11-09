@@ -1,0 +1,41 @@
+:docstyle: book
+:Author Initials: TGH
+:Author Email: ted@thelogbox
+
+= Java Basics
+
+[preface]
+== Preface
+
+=== Chapter Organization
+Chapter org
+
+=== What you need to know
+What you need to know
+
+// CHAPTER-BASICS 
+include::chapter-basics/3-basic-concepts.adoc[]
+include::chapter-basics/4-hello.adoc[]
+include::chapter-basics/5-program-structure.adoc[]
+include::chapter-basics/6-types.adoc[]
+include::chapter-basics/7-keywords.adoc[]
+include::chapter-basics/8-operators.adoc[]
+include::chapter-basics/9-expressions.adoc[]
+include::chapter-basics/10-printing.adoc[]
+include::chapter-basics/11-decisions.adoc[]
+include::chapter-basics/12-looping.adoc[]
+include::chapter-basics/13-exceptions.adoc[]
+include::chapter-basics/14-methods.adoc[]
+include::chapter-basics/15-objects.adoc[]
+include::chapter-basics/16-accessibility.adoc[]
+include::chapter-basics/17-interfaces.adoc[]
+include::chapter-basics/18-this.adoc[]
+include::chapter-basics/19-strings.adoc[]
+include::chapter-basics/20-javalang.adoc[]
+include::chapter-basics/21-makefiles.adoc[]
+include::chapter-basics/22-collections.adoc[]
+include::chapter-basics/23-database.adoc[]
+include::chapter-basics/24-threads.adoc[]
+
+
+

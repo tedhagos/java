@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>11.4. Formatted Printing</title><link rel="stylesheet" type="text/css" href="stylesheet.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.html" title="Java Basics" /><link rel="up" href="printing_things.html" title="11. Printing Things" /><link rel="prev" href="printing_expressions.html" title="11.3. Printing expressions" /><link rel="next" href="references_2.html" title="11.5. References" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">11.4. Formatted Printing</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="printing_expressions.html">Prev</a> </td><th width="60%" align="center">11. Printing Things</th><td width="20%" align="right"> <a accesskey="n" href="references_2.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="formatted_printing"></a>11.4. Formatted Printing</h3></div></div></div>
+
+<p>When you need to output a combination of strings and variable values, the most natural way to do it is by string concatenation. You’ve already seen this technique in the previous section, it looks like the example below.</p>
+<p>
+<strong>Listing 10-5. </strong>
+
+</p><pre class="screen">int a = 1;
+int b = 2;
+System.out.println("a + b = " + (a + b));</pre><p>
+
+</p>
+<p>There is nothing wrong with concatenating strings but it does suffer from some problems (a) it’s cumbersome and (b) it’s prone to error. Can you imagine if you had to write something like this</p>
+<p>
+<strong>Listing 10-6. </strong>
+
+</p><pre class="screen">int a = 1;
+int b = 2;
+System.out.println("a = " + a + ", "b = " + b);</pre><p>
+
+</p>
+<p>This kind of coding can get ugly and difficult pretty quickly. You can almost get cross-eyed just looking at it and checking if the pairs of double quotes are correct. We’re just dealing with 2 variables in the above example, imagine if we were dealing with more. Fortunately, there are other ways of handling these kinds of tasks. Let’s do over the code example above using a more appropriate printing method.</p>
+<p>
+<strong>Listing 10.7. </strong>
+
+</p><pre class="screen">int a = 1;
+int b = 2;
+System.out.printf("a = %d, b = %d", a,b);</pre><p>
+
+</p>
+<p>The <span class="strong"><strong>printf</strong></span> method behaves like the print and println. All three can handle whatever you throw at them. But there are two things that printf can handle exceptionally well, it can (a) handle positional parameters and (b) formatting.</p>
+<p>Printf allows us to use place holders or format specifiers inside a string literal. These placeholders will be filled up by the actual values that are also specified within the method. In the example above, <span class="emphasis"><em>%d</em></span> is a placeholder. There are two  of them because there are two variables also to the right of the String literal. The first <span class="emphasis"><em>%d</em></span> corresponds to variable a and the second <span class="emphasis"><em>%d</em></span> is for variable b.</p>
+<p>The format specifier we used in the example was written as %d because it needed to handle integer values. If we wanted it to deal with another type of data, we would have used a different specifier. You can format quite a few things with printf.</p>
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: none; "><li class="listitem" style="list-style-type: none">
+❏ other format specifiers
+</li></ul></div>
+</div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="printing_expressions.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="printing_things.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="references_2.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">11.3. Printing expressions </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 11.5. References</td></tr></table></div></body></html>

@@ -1,0 +1,174 @@
+== Program Structure
+
+
+=== Class
+
+A typical Java program would contain one class definition in a Java source file. The source file can contain more than one class but that is not generally the practice. The name of the class definition is usually the same as the name of the source file it is contained in, it doesn’t have to be but that is usually the case. 
+
+.Listing 5-1, Hello.java
+----
+class Hello
+{
+}
+----
+
+Listing 5-1 above shows the basic structure a class. The reserved word `class` is used followed by an identifier which is the name of the class. The identifier or the class name is something that you will provide. It could be Person, BankAccount, Service, Dog etc. Naming your class will be entirely up to you. The class declaration is also accompanied by   a pair of French brackets or curly braces. The braces constitutes the body of the class. The class body is empty right  now because we haven’t done anything yet, but that’s okay. It’s perfectly legal to compile a class with an empty body, it won’t be very useful but it will compile.
+
+=== Comments
+
+Comments are things you write in a source file but they are ignored by the compiler. They are meant to give you, or other programmers who will read your code, some context as to what the code is doing or what is going on. There are three ways to write comments in Java, Listing 5-2 shows them all.
+
+.Listing 5-2, Comments in code
+----
+/*
+  Comments may appear outside the class. 
+  This kind of comment may span multiple lines 
+  in your source file
+*/
+
+class Hello {
+
+  public static void main(String []args) {
+
+  String a = "Hello"; // this is an inline comment
+  // an inline comment cannot span multiple lines
+  // Everything to the right of the double slash will be ignored
+
+  }
+
+  /**
+  This form of comment with the double star is also
+  a multi-line comment. This kind of comment is
+  special because it gets picked up by the 
+  javadoc tool
+  */
+}
+----
+
+NOTE: You can use `javadoc` to provide documentation for your classes. If you write comments using the javadoc style, the one with the double star, javadoc will produce html documentation for your classes
+
+=== Functions
+
+Class definitions may contain more than one function. You’ve already seen the main function in our previous examples, Listing 5-3 shows another class example with more than one function.
+
+.Listing 5-3
+----
+class Hello {
+
+  public static void main(String args[]) {
+    sayHello(); //<1>
+  }
+  
+  static void sayHello() {
+    System.out.println("Hello World\n");
+  }
+}
+----
+<1> Calls the function `sayHello()`
+
+Don’t worry about keywords like static and void. We’ll get to them when get we discuss functions. Right now, we’re just familiarizing ourselves with the various ways on how we can structure our program codes.
+
+=== Variables
+
+A variable is container. More specifically it is a container of data. When you create data as part of your program, the runtime will store them somewhere in memory. You will need to give that variable a name so that you can retrieve or replace its contents. Variables are created by (a) declaring the type of the variable and (b) giving it a name. 
+
+.Listing 5-4, Variables
+----
+class Hello {
+  public static void main(String []args) {
+    
+    String word = null; //<1>
+    word = "Hello World"; //<2>
+    
+    System.out.println(word);  // <3>
+  }
+}
+----
+
+<1> Declare the variable **word** to be of type `String`
+<2> Initialize the variable and set it to “Hello World”
+<3> Retrieve the value of the variable and print it
+
+Variables may appear inside or outside function definitions but they may never appear outside the class. Remember that most things in Java are written inside the class definition.
+
+=== Multiple Class Definitions
+
+You can write multiple class definitions within a source file. That is not the general practice and it is not the best thing to do, but that is possible. Listing 5-5 shows how that can the achieved. 
+
+.Listing 5-5, helloworld.java
+----
+class Hello {
+
+}
+
+class World {
+
+}
+----
+
+When you compile the code, it will produce two class files.
+
+.Listing 5-6, Result of compilation
+----
+$ ls 
+  Hello.class
+  World.class
+----
+
+The resulting byte code is dependent on the names of the classes defined inside the source file and not on the name of the source file.
+
+TIP: It is always best to have only one class definition per source file. It is even better if the name of the source file is exactly the same as that of class defined
+
+=== Blank Spaces
+
+Java is tokenized language. Only words and symbols have meaning to the compiler. It ignores white and blank spaces. We can use this to our advantage because white spaces improves program readability.
+
+.Listing 5-7, Use of blank spaces
+----
+class Hello {
+
+  public static void main(String args[]) {
+    sayHello(); 
+  }
+  
+  static void sayHello() {
+    System.out.println(“Hello World\n”);
+  }
+}
+----
+
+Notice the use of white space in between the two function definitions. 
+
+=== Program Statements
+
+Programming statements, like our sentences, needs to be punctuated. Imagine a piece of prose that has no punctuation whatsoever. It will be hard to understand what it means. Think of statements like they are sentences in natural language. They form a complete unit of execution. We punctuate a complete sentence with a period. A complete Java statement is punctuated, or rather, terminated by a semicolon.
+
+
+.Listing 5-8, Illegal code
+[source,java,numbered]
+----
+class Hello {
+   public static void main(String []args) {
+      String word = "Hello" //<1>
+      System.out.println(word);
+   }
+}
+----
+
+<1> Missing semicolon
+
+The missing semicolon will cause the compiler to treat the statements in lines 3 and 4 to be part of a single statement. Which is not correct because they are supposed to be 2 separate statements. Line 3 creates the variable and line 4 is supposed to print it. 
+
+=== Operators
+
+
+== Expressions
+
+
+== Blocks
+
+
+
+
+<<<
+

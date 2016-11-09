@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>3. Program Structure</title><link rel="stylesheet" type="text/css" href="stylesheet.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.html" title="Java Basics" /><link rel="up" href="index.html" title="Java Basics" /><link rel="prev" href="hello_world.html" title="2. Hello World" /><link rel="next" href="expressions.html" title="4. Expressions" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3. Program Structure</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="hello_world.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="expressions.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="program_structure"></a>3. Program Structure</h2></div></div></div>
+
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="class"></a>3.1. Class</h3></div></div></div>
+
+<p>A typical Java program would contain one class definition in a Java source file. The source file can contain more than one class but that is not generally the practice. The name of the class definition is usually the same as the name of the source file it is contained in, it doesn’t have to be but that is usually the case.</p>
+<p>
+<strong>Listing 5-1, Hello.java. </strong>
+
+</p><pre class="screen">class Hello
+{
+}</pre><p>
+
+</p>
+<p>Listing 5-1 above shows the basic structure a class. The reserved word <code class="literal">class</code> is used followed by an identifier which is the name of the class. The identifier or the class name is something that you will provide. It could be Person, BankAccount, Service, Dog etc. Naming your class will be entirely up to you. The class declaration is also accompanied by   a pair of French brackets or curly braces. The braces constitutes the body of the class. The class body is empty right  now because we haven’t done anything yet, but that’s okay. It’s perfectly legal to compile a class with an empty body, it won’t be very useful but it will compile.</p>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="comments"></a>3.2. Comments</h3></div></div></div>
+
+<p>Comments are things you write in a source file but they are ignored by the compiler. They are meant to give you, or other programmers who will read your code, some context as to what the code is doing or what is going on. There are three ways to write comments in Java, Listing 5-2 shows them all.</p>
+<p>
+<strong>Listing 5-2, Comments in code. </strong>
+
+</p><pre class="screen">/*
+  Comments may appear outside the class.
+  This kind of comment may span multiple lines
+  in your source file
+*/
+
+class Hello {
+
+  public static void main(String []args) {
+
+  String a = "Hello"; // this is an inline comment
+  // an inline comment cannot span multiple lines
+  // Everything to the right of the double slash will be ignored
+
+  }
+
+  /**
+  This form of comment with the double star is also
+  a multi-line comment. This kind of comment is
+  special because it gets picked up by the
+  javadoc tool
+  */
+}</pre><p>
+
+</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png" /></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+<p>You can use <code class="literal">javadoc</code> to provide documentation for your classes. If you write comments using the javadoc style, the one with the double star, javadoc will produce html documentation for your classes</p>
+</td></tr></table></div>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="functions"></a>3.3. Functions</h3></div></div></div>
+
+<p>Class definitions may contain more than one function. You’ve already seen the main function in our previous examples, Listing 5-3 shows another class example with more than one function.</p>
+<p>
+<strong>Listing 5-3. </strong>
+
+</p><pre class="screen">class Hello {
+
+  public static void main(String args[]) {
+    sayHello(); <a id="CO2-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
+  }
+
+  static void sayHello() {
+    System.out.println("Hello World\n");
+  }
+}</pre><p>
+
+</p>
+<div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO2-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Calls the function <code class="literal">sayHello()</code></p>
+</td></tr></table></div>
+<p>Don’t worry about keywords like static and void. We’ll get to them when get we discuss functions. Right now, we’re just familiarizing ourselves with the various ways on how we can structure our program codes.</p>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variables"></a>3.4. Variables</h3></div></div></div>
+
+<p>A variable is container. More specifically it is a container of data. When you create data as part of your program, the runtime will store them somewhere in memory. You will need to give that variable a name so that you can retrieve or replace its contents. Variables are created by (a) declaring the type of the variable and (b) giving it a name.</p>
+<p>
+<strong>Listing 5-4, Variables. </strong>
+
+</p><pre class="screen">class Hello {
+  public static void main(String []args) {
+
+    String word = null; <a id="CO3-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
+    word = "Hello World"; <a id="CO3-2"></a><span><img src="images/callouts/2.png" alt="2" border="0" /></span>
+
+    System.out.println(word);  <a id="CO3-3"></a><span><img src="images/callouts/3.png" alt="3" border="0" /></span>
+  }
+}</pre><p>
+
+</p>
+<div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO3-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Declare the variable <span class="strong"><strong>word</strong></span> to be of type <code class="literal">String</code></p>
+</td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO3-2"><span><img src="images/callouts/2.png" alt="2" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Initialize the variable and set it to “Hello World”</p>
+</td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO3-3"><span><img src="images/callouts/3.png" alt="3" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Retrieve the value of the variable and print it</p>
+</td></tr></table></div>
+<p>Variables may appear inside or outside function definitions but they may never appear outside the class. Remember that most things in Java are written inside the class definition.</p>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="multiple_class_definitions"></a>3.5. Multiple Class Definitions</h3></div></div></div>
+
+<p>You can write multiple class definitions within a source file. That is not the general practice and it is not the best thing to do, but that is possible. Listing 5-5 shows how that can the achieved.</p>
+<p>
+<strong>Listing 5-5, helloworld.java. </strong>
+
+</p><pre class="screen">class Hello {
+
+}
+
+class World {
+
+}</pre><p>
+
+</p>
+<p>When you compile the code, it will produce two class files.</p>
+<p>
+<strong>Listing 5-6, Result of compilation. </strong>
+
+</p><pre class="screen">$ ls
+  Hello.class
+  World.class</pre><p>
+
+</p>
+<p>The resulting byte code is dependent on the names of the classes defined inside the source file and not on the name of the source file.</p>
+<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png" /></td><th align="left">Tip</th></tr><tr><td align="left" valign="top">
+<p>It is always best to have only one class definition per source file. It is even better if the name of the source file is exactly the same as that of class defined</p>
+</td></tr></table></div>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="blank_spaces"></a>3.6. Blank Spaces</h3></div></div></div>
+
+<p>Java is tokenized language. Only words and symbols have meaning to the compiler. It ignores white and blank spaces. We can use this to our advantage because white spaces improves program readability.</p>
+<p>
+<strong>Listing 5-7, Use of blank spaces. </strong>
+
+</p><pre class="screen">class Hello {
+
+  public static void main(String args[]) {
+    sayHello();
+  }
+
+  static void sayHello() {
+    System.out.println(“Hello World\n”);
+  }
+}</pre><p>
+
+</p>
+<p>Notice the use of white space in between the two function definitions.</p>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="program_statements"></a>3.7. Program Statements</h3></div></div></div>
+
+<p>Programming statements, like our sentences, needs to be punctuated. Imagine a piece of prose that has no punctuation whatsoever. It will be hard to understand what it means. Think of statements like they are sentences in natural language. They form a complete unit of execution. We punctuate a complete sentence with a period. A complete Java statement is punctuated, or rather, terminated by a semicolon.</p>
+<p>
+<strong>Listing 5-8, Illegal code. </strong>
+
+</p><pre class="programlisting">class Hello {
+   public static void main(String []args) {
+      String word = "Hello" <a id="CO4-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
+      System.out.println(word);
+   }
+}</pre><p>
+
+</p>
+<div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO4-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Missing semicolon</p>
+</td></tr></table></div>
+<p>The missing semicolon will cause the compiler to treat the statements in lines 3 and 4 to be part of a single statement. Which is not correct because they are supposed to be 2 separate statements. Line 3 creates the variable and line 4 is supposed to print it.</p>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="operators"></a>3.8. Operators</h3></div></div></div>
+
+
+</div>
+</div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="hello_world.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="expressions.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2. Hello World </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 4. Expressions</td></tr></table></div></body></html>

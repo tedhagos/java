@@ -1,0 +1,10 @@
+== Basic Programming Concepts
+
+compilation and interpretation
+natural language, declarative, markup, functional etc . point them to other resources
+
+
+
+<<<
+
+

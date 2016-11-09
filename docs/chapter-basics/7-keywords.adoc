@@ -1,0 +1,86 @@
+== Reserved Words and Identifiers
+
+Java programs are made up of words and symbols. Some of these words are pre-defined in the language. These are called _reserved words_, they have special meaning to the compiler and the runtime. Some of the words we get to make up by ourselves, these are called _identifiers_. Examples of identifiers are names of classes, interfaces, variables, constants etc.  
+
+NOTE: Up until this point, we still refer to subroutines or procedures as functions. In Java, they are referred to as _methods_. So from hereon forward, we will start referring to functions as methods
+
+Programs are made up of English-like statements and instructions. When they go through compilation, each word and symbol is analyzed and broken up to constituent parts or tokens.
+The compiler will try to make sense of what you have written. If the program is written according to the syntactical rules, then the compilation proceeds, otherwise we get an error.
+
+Imagine the times when you were typing a document in a word processor. Did you ever see those squiggly lines? Maybe there was something wrong with the grammar or that you typed a word that the processor does not recognize. The word wasn't part of its dictionary yet. What the word processor did was to break down your document to its constituent parts. Your doc was tokenized then analyzed and compared against a set of rules. That process is very similar to our compilation procedure.  
+
+=== Reserved Words
+
+image::images/book/keywords.jpg[title="Reserved Words", width=90%]
+
+You don’t need to memorize them, but I suspect that as you grow in the practice, you will be able to commit most of them in memory.
+
+=== Identifiers
+
+Identifiers are that part of our program which we get to name. These parts are (a) classes (b) interfaces (c) variables (d) constants (e) enums (f) methods and (g) packages. Listing 8-1 shows a sample code where identifiers are highlighted
+
+.Listing 8-1
+----
+class Person { //<1>
+  String firstname = "John"; //<2>
+  String lastname = "Doe"; //<3>
+  
+  void printName() { //<4>
+    System.out.println(lastname +  " , " + firstname);
+  }
+}
+----
+
+<1> keyword = `class`, identifier = **Person**(_class_)
+<2> identifier = **firstname**(_variable_)
+<3> identifier = **lastname**(_variable_)
+<4> keyword = `void`, identifier = **printName**(_method_)
+
+=== Valid Identifiers
+
+Here are the rules for creating identifiers
+
+1. **Alphanumeric characters only**. We have to limit our character use to the letters a-z, A-Z and 0-9
+2. **No Special Characters**. We can use the dollar sign and underscore, other than that, all special chars are off limits
+3. **No Reserved words**. Can't use any of the 50 keywords as an identifier. We also cannot use literals like `true`, `false` or `null`
+4. **First letter matters**. It has to start with either a letter, underscore or dollar sign.  I won't advise that you use the dollar sign or the underscore. Some code generators actually use those characters, so you might want to stay away from them. Just stick with plain letters
+5. **Make it descriptive**. This last item is not really a rule but it should be. There is no technical limit to the number of characters in an identifier, so you shouldn't have an excuse for variable names _i, j, x, y_. I am guilty of violating this last item in this book, but hey, I'm trying to prevent code samples from wrapping up
+
+=== Exercises
+
+**Exercise 8-1**::
+Try to compile the following code
++
+----
+class 1Hello {
+}
+----
++
+What happened. Take note of the error and fix it.
+
+**Exercise 8-2**::
+Consider the following code
++
+----
+class Test {
+  public stati void main(String []args) {
+    System.out.println("Can you spot the error");
+  }
+}
+----
++
+Can you spot the error without compiling? Why wouldn't it compile? What do you need to do to fix it?
+
+**Exercise 8-3**::
+Which ones are illegal identifiers
+
+[loweralpha]
+1. `This_is_AnAwfullyLongVariableName`
+2. `1Lastname`
+3. `Last1Name`
+4. `$Firstname`
+5. `#Address`
+
+
+
+<<<

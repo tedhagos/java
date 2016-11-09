@@ -1,0 +1,170 @@
+:chapter-label: Chapter -
+:doctype: book
+:toc: macro
+:toc-title: Contents
+:toclevels: 1
+:source-highlighter: pygments
+:stylesheet: style.css
+:pygments-style: trac
+:icons:
+:data-uri:
+
+
+Java Lessons
+============
+
+
+Ted Hagos <ted@thelogbox.com>
+v1.0, 2016-17
+
+
+
+This is the optional preamble (an untitled section body). Useful for
+writing simple sectionless documents consisting only of a preamble.
+
+
+<<<
+
+== Printing Things
+
+You've already seen how to print things to the screen since the first chapter. There's not much to it. We simply pass a String to the println function and we're pretty much done. But there are a couple more things that are useful to know about printing. That is what we'll explore in this chapter.
+
+=== Printing Multiple lines
+
+.Listing 10-1
+[source, java]
+----
+System.out.println("The quick brown");
+System.out.println("fox jumped over the head");
+System.out.println("of the lazy dog");
+----
+
+.Output of listing 10-1
+----
+The quick brown
+fox jumped over the head
+of the lazy dog
+----
+
+No surprises there, we already that `println` adds a carriage return and linefeed to the output, we don't even need to use the newline (**\n**) escape sequence within the string. 
+
+=== Printing on the same line
+
+If you need to output text on the screen without the newline feed, use the **print** function instead of the println.
+
+.Listing 10-2
+[source, java]
+----
+System.out.print("The quick brown ");
+System.out.print("fox jumped over the head ");
+System.out.print("of the lazy dog ");
+----
+
+.Output of listing 10-2
+----
+The quick brown fox jumped over the head of the lazy dog
+----
+
+We'll do a little bit of experiment. We will try to emulate the behavior of the println function using the newline escape sequence with the print function.
+
+.Listing 10-3
+[source, java]
+----
+System.out.print("The quick brown\n");
+System.out.print("fox jumped over the head\n");
+System.out.print("of the lazy dog\n");
+----
+
+.Output of listing 10-3
+----
+The quick brown
+fox jumped over the head
+of the lazy dog
+----
+
+As you can see with the output, it is identical to the output of listing 10-1 earlier.
+
+
+=== Printing expressions
+
+We've printed lots of things already but all of them are strings. You might begin to think that only Strings can be printed. That is not the case. We can print anything.
+
+.Listing 10-4, More printing
+----
+System.out.println(1123456); //<1>
+System.out.println(10.2); //
+int a = 7, b=7;
+System.out.println(a); //<2>
+System.out.println();
+System.out.println();
+System.out.println();
+System.out.println(1 + 2); //<3>
+System.out.println(a > b); //<4>
+System.out.println("1 + 2 = " + (1 + 2)); //<5>
+----
+
+<1> Print a literal value
+<2> Print a variable
+<3> Evaluate literal expressions before printing
+<4> Even boolean expressions are okay
+<5> Complex expressions are also okay
+
+Expressions inside the println method will be evaluated first before it gets printed. Any expression that results to a value can be printed inside the println whether it be arithmetic, logical or simply combining Strings.
+
+NOTE: Numbers and math operators may appear within the string double quotes. When they do, they will not be evaluated as expressions. They stay as string literals.
+
+image::images/book/println-expression.jpg[title="Expressions", width=100%]
+
+
+NOTE: When Java encounters a complex expression, it evaluates the arithmetic or boolean expressions. As you can see in the figure above, the arithmetic sum of 1 + 2 was evaluated first, then the result was combined with the string literal.
+
+
+=== Formatted Printing
+
+When you need to output a combination of strings and variable values, the most natural way to do it is by string concatenation. You've already seen this technique in the previous section, it looks like the example below.
+
+.Listing 10-5
+----
+int a = 1;
+int b = 2;
+System.out.println("a + b = " + (a + b));
+----
+
+There is nothing wrong with concatenating strings but it does suffer from some problems (a) it's cumbersome and (b) it's prone to error. Can you imagine if you had to write something like this
+
+.Listing 10-6
+----
+int a = 1;
+int b = 2;
+System.out.println("a = " + a + ", "b = " + b);
+----
+
+This kind of coding can get ugly and difficult pretty quickly. You can almost get cross-eyed just looking at it and checking if the pairs of double quotes are correct. We're just dealing with 2 variables in the above example, imagine if we were dealing with more. Fortunately, there are other ways of handling these kinds of tasks. Let's do over the code example above using a more appropriate printing method.
+
+.Listing 10.7
+----
+int a = 1;
+int b = 2;
+System.out.printf("a = %d, b = %d", a,b);
+----
+
+The **printf** method behaves like the print and println. All three can handle whatever you throw at them. But there are two things that printf can handle exceptionally well, it can (a) handle positional parameters and (b) formatting.
+
+Printf allows us to use place holders or format specifiers inside a string literal. These placeholders will be filled up by the actual values that are also specified within the method. In the example above, _%d_ is a placeholder. There are two  of them because there are two variables also to the right of the String literal. The first _%d_ corresponds to variable a and the second _%d_ is for variable b.
+
+The format specifier we used in the example was written as %d because it needed to handle integer values. If we wanted it to deal with another type of data, we would have used a different specifier. You can format quite a few things with printf.
+
+- [ ]  other format specifiers
+
+
+=== References
+
+https://docs.oracle.com/javase/tutorial/java/data/numberformat.html
+
+https://sharkysoft.com/archive/printf/docs/javadocs/lava/clib/stdio/doc-files/specification.htm
+
+
+
+
+<<<
+

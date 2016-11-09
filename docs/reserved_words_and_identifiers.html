@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>7. Reserved Words and Identifiers</title><link rel="stylesheet" type="text/css" href="stylesheet.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.html" title="Java Basics" /><link rel="up" href="index.html" title="Java Basics" /><link rel="prev" href="variable_and_data_types.html" title="6. Variable and Data Types" /><link rel="next" href="operators_2.html" title="8. Operators" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">7. Reserved Words and Identifiers</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="variable_and_data_types.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="operators_2.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="reserved_words_and_identifiers"></a>7. Reserved Words and Identifiers</h2></div></div></div>
+
+<p>Java programs are made up of words and symbols. Some of these words are pre-defined in the language. These are called <span class="emphasis"><em>reserved words</em></span>, they have special meaning to the compiler and the runtime. Some of the words we get to make up by ourselves, these are called <span class="emphasis"><em>identifiers</em></span>. Examples of identifiers are names of classes, interfaces, variables, constants etc.</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png" /></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+<p>Up until this point, we still refer to subroutines or procedures as functions. In Java, they are referred to as <span class="emphasis"><em>methods</em></span>. So from hereon forward, we will start referring to functions as methods</p>
+</td></tr></table></div>
+<p>Programs are made up of English-like statements and instructions. When they go through compilation, each word and symbol is analyzed and broken up to constituent parts or tokens.
+The compiler will try to make sense of what you have written. If the program is written according to the syntactical rules, then the compilation proceeds, otherwise we get an error.</p>
+<p>Imagine the times when you were typing a document in a word processor. Did you ever see those squiggly lines? Maybe there was something wrong with the grammar or that you typed a word that the processor does not recognize. The word wasn’t part of its dictionary yet. What the word processor did was to break down your document to its constituent parts. Your doc was tokenized then analyzed and compared against a set of rules. That process is very similar to our compilation procedure.</p>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="reserved_words"></a>7.1. Reserved Words</h3></div></div></div>
+
+<div class="figure"><a id="idm439921850336"></a><p class="title"><strong>Figure 2. Reserved Words</strong></p><div class="figure-contents">
+
+<div class="mediaobject"><img src="images/book/keywords.jpg" width="486" alt="keywords" /></div>
+</div></div><br class="figure-break" />
+<p>You don’t need to memorize them, but I suspect that as you grow in the practice, you will be able to commit most of them in memory.</p>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="identifiers"></a>7.2. Identifiers</h3></div></div></div>
+
+<p>Identifiers are that part of our program which we get to name. These parts are (a) classes (b) interfaces (c) variables (d) constants (e) enums (f) methods and (g) packages. Listing 8-1 shows a sample code where identifiers are highlighted</p>
+<p>
+<strong>Listing 8-1. </strong>
+
+</p><pre class="screen">class Person { <a id="CO9-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
+  String firstname = "John"; <a id="CO9-2"></a><span><img src="images/callouts/2.png" alt="2" border="0" /></span>
+  String lastname = "Doe"; <a id="CO9-3"></a><span><img src="images/callouts/3.png" alt="3" border="0" /></span>
+
+  void printName() { <a id="CO9-4"></a><span><img src="images/callouts/4.png" alt="4" border="0" /></span>
+    System.out.println(lastname +  " , " + firstname);
+  }
+}</pre><p>
+
+</p>
+<div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO9-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>keyword = <code class="literal">class</code>, identifier = <span class="strong"><strong>Person</strong></span>(<span class="emphasis"><em>class</em></span>)</p>
+</td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO9-2"><span><img src="images/callouts/2.png" alt="2" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>identifier = <span class="strong"><strong>firstname</strong></span>(<span class="emphasis"><em>variable</em></span>)</p>
+</td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO9-3"><span><img src="images/callouts/3.png" alt="3" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>identifier = <span class="strong"><strong>lastname</strong></span>(<span class="emphasis"><em>variable</em></span>)</p>
+</td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO9-4"><span><img src="images/callouts/4.png" alt="4" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>keyword = <code class="literal">void</code>, identifier = <span class="strong"><strong>printName</strong></span>(<span class="emphasis"><em>method</em></span>)</p>
+</td></tr></table></div>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="valid_identifiers"></a>7.3. Valid Identifiers</h3></div></div></div>
+
+<p>Here are the rules for creating identifiers</p>
+<div class="orderedlist"><ol class="orderedlist" type="1"><li class="listitem">
+<span class="strong"><strong>Alphanumeric characters only</strong></span>. We have to limit our character use to the letters a-z, A-Z and 0-9
+</li><li class="listitem">
+<span class="strong"><strong>No Special Characters</strong></span>. We can use the dollar sign and underscore, other than that, all special chars are off limits
+</li><li class="listitem">
+<span class="strong"><strong>No Reserved words</strong></span>. Can’t use any of the 50 keywords as an identifier. We also cannot use literals like <code class="literal">true</code>, <code class="literal">false</code> or <code class="literal">null</code>
+</li><li class="listitem">
+<span class="strong"><strong>First letter matters</strong></span>. It has to start with either a letter, underscore or dollar sign.  I won’t advise that you use the dollar sign or the underscore. Some code generators actually use those characters, so you might want to stay away from them. Just stick with plain letters
+</li><li class="listitem">
+<span class="strong"><strong>Make it descriptive</strong></span>. This last item is not really a rule but it should be. There is no technical limit to the number of characters in an identifier, so you shouldn’t have an excuse for variable names <span class="emphasis"><em>i, j, x, y</em></span>. I am guilty of violating this last item in this book, but hey, I’m trying to prevent code samples from wrapping up
+</li></ol></div>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="exercises_3"></a>7.4. Exercises</h3></div></div></div>
+
+<div class="variablelist"><dl class="variablelist"><dt><span class="term"><span class="strong"><strong>Exercise 8-1</strong></span></span></dt><dd>
+<p class="simpara">Try to compile the following code</p>
+<pre class="screen">class 1Hello {
+}</pre>
+<p class="simpara">What happened. Take note of the error and fix it.</p>
+</dd><dt><span class="term"><span class="strong"><strong>Exercise 8-2</strong></span></span></dt><dd>
+<p class="simpara">Consider the following code</p>
+<pre class="screen">class Test {
+  public stati void main(String []args) {
+    System.out.println("Can you spot the error");
+  }
+}</pre>
+<p class="simpara">Can you spot the error without compiling? Why wouldn’t it compile? What do you need to do to fix it?</p>
+</dd><dt><span class="term"><span class="strong"><strong>Exercise 8-3</strong></span></span></dt><dd>
+Which ones are illegal identifiers
+</dd></dl></div>
+<div class="orderedlist"><ol class="orderedlist" type="a"><li class="listitem">
+<code class="literal">This_is_AnAwfullyLongVariableName</code>
+</li><li class="listitem">
+<code class="literal">1Lastname</code>
+</li><li class="listitem">
+<code class="literal">Last1Name</code>
+</li><li class="listitem">
+<code class="literal">$Firstname</code>
+</li><li class="listitem">
+<code class="literal">#Address</code>
+</li></ol></div>
+<p></p>
+</div>
+</div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="variable_and_data_types.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="operators_2.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">6. Variable and Data Types </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 8. Operators</td></tr></table></div></body></html>

@@ -1,0 +1,38 @@
+== Basic Java Concepts
+
+The Java platform consist of a couple of things. A programming language, the virtual machine, a set of built-in libraries and technology frameworks. I would imagine that most people would think of Java only as the programming language, that is quite understandable since the language is probably the most prominent part of the platform and hence, has the most mind share. Just remember that Java is an umbrella term we use to refer to the platform.
+
+=== Java as a Language
+
+The Java language is not so old, as far as programming languages  go. James Gosling worked on it in the early part of the 90s and released it in 1995<<ojh>>. It is barely 21 years old at the time of this writing. Whereas the C language is almost 47 years old, C was released sometime in 1969. 
+
+If you have background in other languages such as Javascript, C++ or C#, Java may look familiar because all of them share some semblance with the C language. By the way, Java is in no way related to Javascript. Javascript is not a derivative of Java nor was it inspired by Java. Java is related to Javascript the same way as car is related to carpet. They just have common letters in their names. 
+
+
+Java is a high level language. It provides a fair amount of abstraction above the physical machine that it runs on. But you can dive down and perform some decent low level operation on the bit level if you want to. It is also a general purpose language. It wasn’t designed just to program web applications or anything specific. It is not a domain specific language the way Sinatra (Ruby) or Express (NodeJS) is. You can build pretty much anything you can imagine.
+
+=== The Virtual Machine
+
+Java is a compiled language. Like other languages such as C or C++, you will write your programming  instructions  in a source file using a somewhat English-like language.  This source file will be compiled into an object file. An object file contains a set of instructions that a machine can understand and execute. In Java, an object file or executable file is called a *byte code*. The byte code is what a Java Virtual Machine, or JVM, can execute.  
+
+Byte codes, however, cannot be executed directly by the operating system (OS). They do not contain the same instructions nor are they structured like the regular EXE files or other forms of portable executable. The OS does not know what to do with a byte code. They have to be executed within a virtual machine. The Java runtime engine (JRE) is such a machine.  
+
+Java is portable at the byte code level. You can write and compile your program in one OS, say Windows and run it on another OS without requiring any modification. Sun Microsystem,  the former custodian of the Java technology, came up with the WORA slogan during the early days of Java, it stood for Write Once Run Anywhere.
+
+image::images/book/work-cycle.jpg[title="Work Cycle", width=100%]
+
+Each operating system have their own version of the virtual machine but what runs on one virtual machine, will run on all.
+
+=== Editions 
+
+You can use Java to build applications for a variety of architectures. Java comes in several editions. The JSE (Java Standard Edition) which is the topic of this book, can be used to build Desktop applications. Java Enterprise Edition (JEE) can be used to build web applications, web services, high availability back-end processes etc. Java Mobile Edition (JME) can be used to build apps for mobile or embedded devices. Although for mobile devices like Android phones/tablets, you might want to consider the Android SDK. By the way, the native language for the Android platform is Java.
+
+=== References
+
+[bibliography]
+- [[[ojh]]] The History of Java Technology. http://www.oracle.com/technetwork/java/javase/overview/javahistory-index-198355.html
+
+
+<<<
+
+

@@ -1,0 +1,169 @@
+== Hello World
+
+Beginning programmers start their coding journey with the hello world program. While it may seem silly and quite lacking of any practical or commercial value, it does have an educational value. The simple hello world program will instruct us on (a) how to write and compile a source file (b) what gets executed first when a program is ran, and (c) how to run a Java program.
+
+There will be a couple of things in our first program that will not be immediately obvious nor will it make sense, but we won’t let those get in our way. We can safely side step some aspects of the example code and ignore them for now. We’ll circle back to them soon enough, in later chapters.
+
+=== Writing our first Program
+
+1. **Choose a folder** where you can save your program source files. The best folder is where you have read, write and execute permissions. Your home folder is a good place to start. Listings  4-1 and 4-2 shows how to create a directory named “practice” under your home folder.
++
+.Listing 4-1, Windows CLI
+----
+cd /Users/yourUserName
+md practice
+cd practice
+----
+Don’t forget to replace _yourUserName_ with your actual user name in the Windows machine.
++
+.Listing 4-2, OSX and Linux
+----
+cd ~
+mkdir practice
+cd practice
+----
+2. **Create a file** named `helloworld.java`
++
+.Listing 4-3, Create a file in OSX or Linux
+----
+touch hello.java
+----
++
+If you are on Windows, just launch your code editor, create a new file then save it under the name _helloworld.java_ in the directory /Users/yourUserName/practice/.
+3. **Write** the program. Open helloworld.java in the editor and type the following
++
+.Listing 4-4, Contents of helloworld.java
+----
+class Hello { 
+  public static void main(String []args) {  
+    System.out.println("Hello World\n");
+  } 
+} 
+----
+4. **Compile** the source file.
++
+.Listing 4-5, The Java compiler
+----
+javac helloworld.java
+----
++
+The terminal window might appear like its hung for a couple of seconds before the terminal prompt returns. It might seem anti climactic because you didn’t see anything, but that is actually a good thing. It means the code compiled without problems.
++
+TIP: If you want to see some progress messages while compiling, use the command `javac -verbose  helloworld.java`
++
+If you inspect your working directory, you should the result of our compilation.
++
+.Listing 4-6, list directory contents
+----
+$ ls
+  helloworld.java
+  Hello.class
+----
++
+The resulting file is not _helloworld.class_, but _Hello.class_. The resultant byte code is not determined by the name of the source file. It is dependent on the name of the class declared inside the source file.
+
+5. **Run** the byte code. Create an instance of the JVM and run our Hello example program. 
++
+.Listing 4-7, The Java Runtime Engine
+----
+java Hello
+----
+CAUTION: When running a Java program, do not include the file extension of the byte code e.g. `java Hello.class`
++
+If all goes well, you should see the string “Hello World” printed out on your screen.
+ 
+=== What have we done
+
+If you were able to follow along the coding exercise, that is well and good. Now, we come to the more important part of the exercise. We need to understand what’s going on. Let’s revisit our code and read it a bit more slowly and deliberately.
+
+.Listing 4-8, helloworld.java
+[source, java]
+----
+class Hello { // <1>
+  public static void main(String []args) {  // <2>
+    System.out.println("Hello World\n"); // <3>
+  } 
+} 
+----
+
+<1> All program statements must be written inside a class
+<2> The **main function** is the program’s entry point
+<3> `println` takes a String parameter and prints it on the screen
+
+A function organizes program elements by grouping together a bunch of statements. A class organizes elements by grouping together a bunch of functions and variables. We will discuss the concept and mechanics of a class in later chapters. What is important to take away right now is that Java is bit gung-ho about classes that you cannot write program statements outside of it. You cannot, for example, do something like the following code, and expect it to compile.
+
+.Listing 4-9, Illegal statement
+----
+System.out.println(“Hello World\n“);
+----
+
+Every program must have an entry point. When you run a program, the operating system, virtual or otherwise, will look for something it can execute. A Java application’s entry point is a special function called `main`. The main function is written as `public, static and void` for a very specific reason. These combination of keywords affects the function’s accessibility and startability. We are not quite ready to deal with these concepts right now, so we’ll side step. We’ll deal with them in later chapters.
+
+NOTE: The main function in a Java application should always look like `public static void main(String []args)`. It has a special signature and meaning in the Java runtime. The slightest misspelling, say like, `public static void Main(String args)` will cause our program **not** to run. It will compile, but it will not run.
+
+WARNING: Java is a case sensitive language, `main` is different than `Main`. 
+
+The last part of our code walk through is the `System.out.println` statement. Println is a function that belongs to the class `out`; a class groups together a bunch of function, remember? A function inside the class can be called by writing the name of the class (out) and resolving the name of the function using the dot notation. 
+
+NOTE: Characters which are enclosed in double quotes, **“like these words”** are called Strings. a String is a type of data in Java. We'll tackle Strings in later chapters.
+
+So what is `System`? It is also another class which contains the out class. This may seem a bit complicated right now and any attempts to explain the relationship between **System**, **out** and **println** will drag us into a rabbit hole. We are not yet ready to go there. We need to build up some more skills before we can take on these concepts. For now, just remember that if you want something to appear on the console, use the statement `System.out.println`.
+
+NOTE: Did you notice the String inside our println statement? It wrote `System.out.println(“Hello World\n“)` but we did not see the **\n** in the output did we? That’s because `\n` is a special character. It’s called an escape sequence. Escape sequences begins with a back-slash character which indicates that the characters that follows should not be treated literally. It should be processed in a special way. The \n means add a new line feed to the output; like pressing ENTER or RETURN key.
+
+=== Chapter Summary
+
+1. All Java programs have one class, at a minimum. You cannot execute any productive program statement outside of a class construct
+2. A Java applications's entry point is a special function called `main`. It needs to be written in a very specific way so that the Java runtime will recognize it when it is eventually executed
+3. When you want to print an output to the screen, you can use the statement `System.out.println()`, the println function takes on a `String` argument. This argument will be printed to the screen
+4. A `String` is a kind of data in Java, just like a number is also a kind of data. Strings are enclosed in double quotes, “like this phrase” 
+
+
+=== Glossary
+
+**byte code**:: 
+	When a Java source file is compiled, it produces a _.class_ file. This file is executable inside a Java Virtual Machine
+**java source file**:: 
+	A UTF-8 file (plain text file) that has a `.java`  extension. A compilation unit in Java
+	**JVM**::
+	Java Virtual Machine, sometimes also referred to as the Java Runtime Engine. It is an abstraction of the underlying operating system. On top of the abstracted OS services, the JVM offers other services which are not part of the underlying OS e.g. garbage collection 
+**class**:: 
+	A way to organize code in Java. A class can contain functions and variables at the same time
+
+=== Exercises
+
+**Exercise 1-1**::
+Change the output of the hello program so that it prints the following:
++
+----
+Hello there
+----
+**Exercise 1-2**::
+Make further modifications to your code so that it prints
++
+----
+Hello
+there
+----
+**Exercise 1-3**::  
+Find out the meaning of the following escape sequences
+- \b
+- \t 
+- \\
+- \’
+- \”
+**Exercises 1-4**::
+Write a program that prints the following output
++
+----
+‘Hello World’
+----
+**Exercises 1-5**::
+Modify your code in Exercise 1-4 so that it prints
++
+----
+“Hello World”
+----
+
+<<<
+

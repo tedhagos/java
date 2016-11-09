@@ -1,0 +1,1070 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?asciidoc-toc?>
+<?asciidoc-numbered?>
+<article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
+<info>
+<title>Java Basics</title>
+<date>2016-11-09</date>
+</info>
+<preface xml:id="preface">
+<title>Preface</title>
+<section xml:id="chapter_organization">
+<title>Chapter Organization</title>
+<simpara>Chapter org</simpara>
+</section>
+<section xml:id="what_you_need_to_know">
+<title>What you need to know</title>
+<simpara>What you need to know</simpara>
+</section>
+</preface>
+<section xml:id="basic_java_concepts">
+<title>Basic Java Concepts</title>
+<simpara>The Java platform consist of a couple of things. A programming language, the virtual machine, a set of built-in libraries and technology frameworks. I would imagine that most people would think of Java only as the programming language, that is quite understandable since the language is probably the most prominent part of the platform and hence, has the most mind share. Just remember that Java is an umbrella term we use to refer to the platform.</simpara>
+<section xml:id="java_as_a_language">
+<title>Java as a Language</title>
+<simpara>The Java language is not so old, as far as programming languages  go. James Gosling worked on it in the early part of the 90s and released it in 1995<xref linkend="ojh"/>. It is barely 21 years old at the time of this writing. Whereas the C language is almost 47 years old, C was released sometime in 1969.</simpara>
+<simpara>If you have background in other languages such as Javascript, C++ or C#, Java may look familiar because all of them share some semblance with the C language. By the way, Java is in no way related to Javascript. Javascript is not a derivative of Java nor was it inspired by Java. Java is related to Javascript the same way as car is related to carpet. They just have common letters in their names.</simpara>
+<simpara>Java is a high level language. It provides a fair amount of abstraction above the physical machine that it runs on. But you can dive down and perform some decent low level operation on the bit level if you want to. It is also a general purpose language. It wasn’t designed just to program web applications or anything specific. It is not a domain specific language the way Sinatra (Ruby) or Express (NodeJS) is. You can build pretty much anything you can imagine.</simpara>
+</section>
+<section xml:id="the_virtual_machine">
+<title>The Virtual Machine</title>
+<simpara>Java is a compiled language. Like other languages such as C or C++, you will write your programming  instructions  in a source file using a somewhat English-like language.  This source file will be compiled into an object file. An object file contains a set of instructions that a machine can understand and execute. In Java, an object file or executable file is called a <emphasis role="strong">byte code</emphasis>. The byte code is what a Java Virtual Machine, or JVM, can execute.</simpara>
+<simpara>Byte codes, however, cannot be executed directly by the operating system (OS). They do not contain the same instructions nor are they structured like the regular EXE files or other forms of portable executable. The OS does not know what to do with a byte code. They have to be executed within a virtual machine. The Java runtime engine (JRE) is such a machine.</simpara>
+<simpara>Java is portable at the byte code level. You can write and compile your program in one OS, say Windows and run it on another OS without requiring any modification. Sun Microsystem,  the former custodian of the Java technology, came up with the WORA slogan during the early days of Java, it stood for Write Once Run Anywhere.</simpara>
+<figure>
+<title>Work Cycle</title>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/book/work-cycle.jpg" contentwidth="100%"/>
+</imageobject>
+<textobject><phrase>work cycle</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara>Each operating system have their own version of the virtual machine but what runs on one virtual machine, will run on all.</simpara>
+</section>
+<section xml:id="editions">
+<title>Editions</title>
+<simpara>You can use Java to build applications for a variety of architectures. Java comes in several editions. The JSE (Java Standard Edition) which is the topic of this book, can be used to build Desktop applications. Java Enterprise Edition (JEE) can be used to build web applications, web services, high availability back-end processes etc. Java Mobile Edition (JME) can be used to build apps for mobile or embedded devices. Although for mobile devices like Android phones/tablets, you might want to consider the Android SDK. By the way, the native language for the Android platform is Java.</simpara>
+</section>
+<section xml:id="references">
+<title>References</title>
+<bibliodiv>
+<bibliomixed>
+<bibliomisc><anchor xml:id="ojh" xreflabel="[ojh]"/>[ojh] The History of Java Technology. <link xl:href="http://www.oracle.com/technetwork/java/javase/overview/javahistory-index-198355.html">http://www.oracle.com/technetwork/java/javase/overview/javahistory-index-198355.html</link></bibliomisc>
+</bibliomixed>
+</bibliodiv>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+</section>
+<section xml:id="hello_world">
+<title>Hello World</title>
+<simpara>Beginning programmers start their coding journey with the hello world program. While it may seem silly and quite lacking of any practical or commercial value, it does have an educational value. The simple hello world program will instruct us on (a) how to write and compile a source file (b) what gets executed first when a program is ran, and (c) how to run a Java program.</simpara>
+<simpara>There will be a couple of things in our first program that will not be immediately obvious nor will it make sense, but we won’t let those get in our way. We can safely side step some aspects of the example code and ignore them for now. We’ll circle back to them soon enough, in later chapters.</simpara>
+<section xml:id="writing_our_first_program">
+<title>Writing our first Program</title>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara><emphasis role="strong">Choose a folder</emphasis> where you can save your program source files. The best folder is where you have read, write and execute permissions. Your home folder is a good place to start. Listings  4-1 and 4-2 shows how to create a directory named “practice” under your home folder.</simpara>
+<formalpara>
+<title>Listing 4-1, Windows CLI</title>
+<para>
+<screen>cd /Users/yourUserName
+md practice
+cd practice</screen>
+</para>
+</formalpara>
+<simpara>Don’t forget to replace <emphasis>yourUserName</emphasis> with your actual user name in the Windows machine.</simpara>
+<formalpara>
+<title>Listing 4-2, OSX and Linux</title>
+<para>
+<screen>cd ~
+mkdir practice
+cd practice</screen>
+</para>
+</formalpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Create a file</emphasis> named <literal>helloworld.java</literal></simpara>
+<formalpara>
+<title>Listing 4-3, Create a file in OSX or Linux</title>
+<para>
+<screen>touch hello.java</screen>
+</para>
+</formalpara>
+<simpara>If you are on Windows, just launch your code editor, create a new file then save it under the name <emphasis>helloworld.java</emphasis> in the directory /Users/yourUserName/practice/.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Write</emphasis> the program. Open helloworld.java in the editor and type the following</simpara>
+<formalpara>
+<title>Listing 4-4, Contents of helloworld.java</title>
+<para>
+<screen>class Hello {
+  public static void main(String []args) {
+    System.out.println("Hello World\n");
+  }
+}</screen>
+</para>
+</formalpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Compile</emphasis> the source file.</simpara>
+<formalpara>
+<title>Listing 4-5, The Java compiler</title>
+<para>
+<screen>javac helloworld.java</screen>
+</para>
+</formalpara>
+<simpara>The terminal window might appear like its hung for a couple of seconds before the terminal prompt returns. It might seem anti climactic because you didn’t see anything, but that is actually a good thing. It means the code compiled without problems.</simpara>
+<tip>
+<simpara>If you want to see some progress messages while compiling, use the command <literal>javac -verbose  helloworld.java</literal></simpara>
+</tip>
+<simpara>If you inspect your working directory, you should the result of our compilation.</simpara>
+<formalpara>
+<title>Listing 4-6, list directory contents</title>
+<para>
+<screen>$ ls
+  helloworld.java
+  Hello.class</screen>
+</para>
+</formalpara>
+<simpara>The resulting file is not <emphasis>helloworld.class</emphasis>, but <emphasis>Hello.class</emphasis>. The resultant byte code is not determined by the name of the source file. It is dependent on the name of the class declared inside the source file.</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Run</emphasis> the byte code. Create an instance of the JVM and run our Hello example program.</simpara>
+<formalpara>
+<title>Listing 4-7, The Java Runtime Engine</title>
+<para>
+<screen>java Hello</screen>
+</para>
+</formalpara>
+<caution>
+<simpara>When running a Java program, do not include the file extension of the byte code e.g. <literal>java Hello.class</literal></simpara>
+</caution>
+<simpara>If all goes well, you should see the string “Hello World” printed out on your screen.</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="what_have_we_done">
+<title>What have we done</title>
+<simpara>If you were able to follow along the coding exercise, that is well and good. Now, we come to the more important part of the exercise. We need to understand what’s going on. Let’s revisit our code and read it a bit more slowly and deliberately.</simpara>
+<formalpara>
+<title>Listing 4-8, helloworld.java</title>
+<para>
+<programlisting language="java" linenumbering="unnumbered">class Hello { <co xml:id="CO1-1"/>
+  public static void main(String []args) {  <co xml:id="CO1-2"/>
+    System.out.println("Hello World\n"); <co xml:id="CO1-3"/>
+  }
+}</programlisting>
+</para>
+</formalpara>
+<calloutlist>
+<callout arearefs="CO1-1">
+<para>All program statements must be written inside a class</para>
+</callout>
+<callout arearefs="CO1-2">
+<para>The <emphasis role="strong">main function</emphasis> is the program’s entry point</para>
+</callout>
+<callout arearefs="CO1-3">
+<para><literal>println</literal> takes a String parameter and prints it on the screen</para>
+</callout>
+</calloutlist>
+<simpara>A function organizes program elements by grouping together a bunch of statements. A class organizes elements by grouping together a bunch of functions and variables. We will discuss the concept and mechanics of a class in later chapters. What is important to take away right now is that Java is bit gung-ho about classes that you cannot write program statements outside of it. You cannot, for example, do something like the following code, and expect it to compile.</simpara>
+<formalpara>
+<title>Listing 4-9, Illegal statement</title>
+<para>
+<screen>System.out.println(“Hello World\n“);</screen>
+</para>
+</formalpara>
+<simpara>Every program must have an entry point. When you run a program, the operating system, virtual or otherwise, will look for something it can execute. A Java application’s entry point is a special function called <literal>main</literal>. The main function is written as <literal>public, static and void</literal> for a very specific reason. These combination of keywords affects the function’s accessibility and startability. We are not quite ready to deal with these concepts right now, so we’ll side step. We’ll deal with them in later chapters.</simpara>
+<note>
+<simpara>The main function in a Java application should always look like <literal>public static void main(String []args)</literal>. It has a special signature and meaning in the Java runtime. The slightest misspelling, say like, <literal>public static void Main(String args)</literal> will cause our program <emphasis role="strong">not</emphasis> to run. It will compile, but it will not run.</simpara>
+</note>
+<warning>
+<simpara>Java is a case sensitive language, <literal>main</literal> is different than <literal>Main</literal>.</simpara>
+</warning>
+<simpara>The last part of our code walk through is the <literal>System.out.println</literal> statement. Println is a function that belongs to the class <literal>out</literal>; a class groups together a bunch of function, remember? A function inside the class can be called by writing the name of the class (out) and resolving the name of the function using the dot notation.</simpara>
+<note>
+<simpara>Characters which are enclosed in double quotes, <emphasis role="strong">“like these words”</emphasis> are called Strings. a String is a type of data in Java. We&#8217;ll tackle Strings in later chapters.</simpara>
+</note>
+<simpara>So what is <literal>System</literal>? It is also another class which contains the out class. This may seem a bit complicated right now and any attempts to explain the relationship between <emphasis role="strong">System</emphasis>, <emphasis role="strong">out</emphasis> and <emphasis role="strong">println</emphasis> will drag us into a rabbit hole. We are not yet ready to go there. We need to build up some more skills before we can take on these concepts. For now, just remember that if you want something to appear on the console, use the statement <literal>System.out.println</literal>.</simpara>
+<note>
+<simpara>Did you notice the String inside our println statement? It wrote <literal>System.out.println(“Hello World\n“)</literal> but we did not see the <emphasis role="strong">\n</emphasis> in the output did we? That’s because <literal>\n</literal> is a special character. It’s called an escape sequence. Escape sequences begins with a back-slash character which indicates that the characters that follows should not be treated literally. It should be processed in a special way. The \n means add a new line feed to the output; like pressing ENTER or RETURN key.</simpara>
+</note>
+</section>
+<section xml:id="chapter_summary">
+<title>Chapter Summary</title>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara>All Java programs have one class, at a minimum. You cannot execute any productive program statement outside of a class construct</simpara>
+</listitem>
+<listitem>
+<simpara>A Java applications&#8217;s entry point is a special function called <literal>main</literal>. It needs to be written in a very specific way so that the Java runtime will recognize it when it is eventually executed</simpara>
+</listitem>
+<listitem>
+<simpara>When you want to print an output to the screen, you can use the statement <literal>System.out.println()</literal>, the println function takes on a <literal>String</literal> argument. This argument will be printed to the screen</simpara>
+</listitem>
+<listitem>
+<simpara>A <literal>String</literal> is a kind of data in Java, just like a number is also a kind of data. Strings are enclosed in double quotes, “like this phrase”</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="glossary">
+<title>Glossary</title>
+<variablelist>
+<varlistentry>
+<term><emphasis role="strong">byte code</emphasis></term>
+<listitem>
+<simpara>When a Java source file is compiled, it produces a <emphasis>.class</emphasis> file. This file is executable inside a Java Virtual Machine</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">java source file</emphasis></term>
+<listitem>
+<simpara>A UTF-8 file (plain text file) that has a <literal>.java</literal>  extension. A compilation unit in Java</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">JVM</emphasis></term>
+<listitem>
+<simpara>Java Virtual Machine, sometimes also referred to as the Java Runtime Engine. It is an abstraction of the underlying operating system. On top of the abstracted OS services, the JVM offers other services which are not part of the underlying OS e.g. garbage collection</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">class</emphasis></term>
+<listitem>
+<simpara>A way to organize code in Java. A class can contain functions and variables at the same time</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+</section>
+<section xml:id="exercises">
+<title>Exercises</title>
+<variablelist>
+<varlistentry>
+<term><emphasis role="strong">Exercise 1-1</emphasis></term>
+<listitem>
+<simpara>Change the output of the hello program so that it prints the following:</simpara>
+<screen>Hello there</screen>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">Exercise 1-2</emphasis></term>
+<listitem>
+<simpara>Make further modifications to your code so that it prints</simpara>
+<screen>Hello
+there</screen>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">Exercise 1-3</emphasis></term>
+<listitem>
+<simpara>Find out the meaning of the following escape sequences</simpara>
+<itemizedlist>
+<listitem>
+<simpara>\b</simpara>
+</listitem>
+<listitem>
+<simpara>\t</simpara>
+</listitem>
+<listitem>
+<simpara>\\</simpara>
+</listitem>
+<listitem>
+<simpara>\’</simpara>
+</listitem>
+<listitem>
+<simpara>\”</simpara>
+</listitem>
+</itemizedlist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">Exercises 1-4</emphasis></term>
+<listitem>
+<simpara>Write a program that prints the following output</simpara>
+<screen>‘Hello World’</screen>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">Exercises 1-5</emphasis></term>
+<listitem>
+<simpara>Modify your code in Exercise 1-4 so that it prints</simpara>
+<screen>“Hello World”</screen>
+</listitem>
+</varlistentry>
+</variablelist>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+</section>
+<section xml:id="program_structure">
+<title>Program Structure</title>
+<section xml:id="class">
+<title>Class</title>
+<simpara>A typical Java program would contain one class definition in a Java source file. The source file can contain more than one class but that is not generally the practice. The name of the class definition is usually the same as the name of the source file it is contained in, it doesn’t have to be but that is usually the case.</simpara>
+<formalpara>
+<title>Listing 5-1, Hello.java</title>
+<para>
+<screen>class Hello
+{
+}</screen>
+</para>
+</formalpara>
+<simpara>Listing 5-1 above shows the basic structure a class. The reserved word <literal>class</literal> is used followed by an identifier which is the name of the class. The identifier or the class name is something that you will provide. It could be Person, BankAccount, Service, Dog etc. Naming your class will be entirely up to you. The class declaration is also accompanied by   a pair of French brackets or curly braces. The braces constitutes the body of the class. The class body is empty right  now because we haven’t done anything yet, but that’s okay. It’s perfectly legal to compile a class with an empty body, it won’t be very useful but it will compile.</simpara>
+</section>
+<section xml:id="comments">
+<title>Comments</title>
+<simpara>Comments are things you write in a source file but they are ignored by the compiler. They are meant to give you, or other programmers who will read your code, some context as to what the code is doing or what is going on. There are three ways to write comments in Java, Listing 5-2 shows them all.</simpara>
+<formalpara>
+<title>Listing 5-2, Comments in code</title>
+<para>
+<screen>/*
+  Comments may appear outside the class.
+  This kind of comment may span multiple lines
+  in your source file
+*/
+
+class Hello {
+
+  public static void main(String []args) {
+
+  String a = "Hello"; // this is an inline comment
+  // an inline comment cannot span multiple lines
+  // Everything to the right of the double slash will be ignored
+
+  }
+
+  /**
+  This form of comment with the double star is also
+  a multi-line comment. This kind of comment is
+  special because it gets picked up by the
+  javadoc tool
+  */
+}</screen>
+</para>
+</formalpara>
+<note>
+<simpara>You can use <literal>javadoc</literal> to provide documentation for your classes. If you write comments using the javadoc style, the one with the double star, javadoc will produce html documentation for your classes</simpara>
+</note>
+</section>
+<section xml:id="functions">
+<title>Functions</title>
+<simpara>Class definitions may contain more than one function. You’ve already seen the main function in our previous examples, Listing 5-3 shows another class example with more than one function.</simpara>
+<formalpara>
+<title>Listing 5-3</title>
+<para>
+<screen>class Hello {
+
+  public static void main(String args[]) {
+    sayHello(); <co xml:id="CO2-1"/>
+  }
+
+  static void sayHello() {
+    System.out.println("Hello World\n");
+  }
+}</screen>
+</para>
+</formalpara>
+<calloutlist>
+<callout arearefs="CO2-1">
+<para>Calls the function <literal>sayHello()</literal></para>
+</callout>
+</calloutlist>
+<simpara>Don’t worry about keywords like static and void. We’ll get to them when get we discuss functions. Right now, we’re just familiarizing ourselves with the various ways on how we can structure our program codes.</simpara>
+</section>
+<section xml:id="variables">
+<title>Variables</title>
+<simpara>A variable is container. More specifically it is a container of data. When you create data as part of your program, the runtime will store them somewhere in memory. You will need to give that variable a name so that you can retrieve or replace its contents. Variables are created by (a) declaring the type of the variable and (b) giving it a name.</simpara>
+<formalpara>
+<title>Listing 5-4, Variables</title>
+<para>
+<screen>class Hello {
+  public static void main(String []args) {
+
+    String word = null; <co xml:id="CO3-1"/>
+    word = "Hello World"; <co xml:id="CO3-2"/>
+
+    System.out.println(word);  <co xml:id="CO3-3"/>
+  }
+}</screen>
+</para>
+</formalpara>
+<calloutlist>
+<callout arearefs="CO3-1">
+<para>Declare the variable <emphasis role="strong">word</emphasis> to be of type <literal>String</literal></para>
+</callout>
+<callout arearefs="CO3-2">
+<para>Initialize the variable and set it to “Hello World”</para>
+</callout>
+<callout arearefs="CO3-3">
+<para>Retrieve the value of the variable and print it</para>
+</callout>
+</calloutlist>
+<simpara>Variables may appear inside or outside function definitions but they may never appear outside the class. Remember that most things in Java are written inside the class definition.</simpara>
+</section>
+<section xml:id="multiple_class_definitions">
+<title>Multiple Class Definitions</title>
+<simpara>You can write multiple class definitions within a source file. That is not the general practice and it is not the best thing to do, but that is possible. Listing 5-5 shows how that can the achieved.</simpara>
+<formalpara>
+<title>Listing 5-5, helloworld.java</title>
+<para>
+<screen>class Hello {
+
+}
+
+class World {
+
+}</screen>
+</para>
+</formalpara>
+<simpara>When you compile the code, it will produce two class files.</simpara>
+<formalpara>
+<title>Listing 5-6, Result of compilation</title>
+<para>
+<screen>$ ls
+  Hello.class
+  World.class</screen>
+</para>
+</formalpara>
+<simpara>The resulting byte code is dependent on the names of the classes defined inside the source file and not on the name of the source file.</simpara>
+<tip>
+<simpara>It is always best to have only one class definition per source file. It is even better if the name of the source file is exactly the same as that of class defined</simpara>
+</tip>
+</section>
+<section xml:id="blank_spaces">
+<title>Blank Spaces</title>
+<simpara>Java is tokenized language. Only words and symbols have meaning to the compiler. It ignores white and blank spaces. We can use this to our advantage because white spaces improves program readability.</simpara>
+<formalpara>
+<title>Listing 5-7, Use of blank spaces</title>
+<para>
+<screen>class Hello {
+
+  public static void main(String args[]) {
+    sayHello();
+  }
+
+  static void sayHello() {
+    System.out.println(“Hello World\n”);
+  }
+}</screen>
+</para>
+</formalpara>
+<simpara>Notice the use of white space in between the two function definitions.</simpara>
+</section>
+<section xml:id="program_statements">
+<title>Program Statements</title>
+<simpara>Programming statements, like our sentences, needs to be punctuated. Imagine a piece of prose that has no punctuation whatsoever. It will be hard to understand what it means. Think of statements like they are sentences in natural language. They form a complete unit of execution. We punctuate a complete sentence with a period. A complete Java statement is punctuated, or rather, terminated by a semicolon.</simpara>
+<formalpara>
+<title>Listing 5-8, Illegal code</title>
+<para>
+<programlisting language="java" linenumbering="numbered">class Hello {
+   public static void main(String []args) {
+      String word = "Hello" <co xml:id="CO4-1"/>
+      System.out.println(word);
+   }
+}</programlisting>
+</para>
+</formalpara>
+<calloutlist>
+<callout arearefs="CO4-1">
+<para>Missing semicolon</para>
+</callout>
+</calloutlist>
+<simpara>The missing semicolon will cause the compiler to treat the statements in lines 3 and 4 to be part of a single statement. Which is not correct because they are supposed to be 2 separate statements. Line 3 creates the variable and line 4 is supposed to print it.</simpara>
+</section>
+<section xml:id="operators">
+<title>Operators</title>
+
+</section>
+</section>
+<section xml:id="expressions">
+<title>Expressions</title>
+
+</section>
+<section xml:id="blocks">
+<title>Blocks</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="variable_and_data_types">
+<title>Variable and Data Types</title>
+<itemizedlist mark="none">
+<listitem>
+<simpara>&#10063; Literals</simpara>
+</listitem>
+<listitem>
+<simpara>&#10063; New ways to write literals in Java 8</simpara>
+</listitem>
+</itemizedlist>
+<simpara>When we program, we create and manipulate things. This is usually done by adding, subtracting, dividing, multiplying or comparing them. Sometimes we mash them together like when we combine two words.  We also store things so that we can retrieve them for later use. This is an oversimplification of what programmers do but at a high level, that should be pretty close.</simpara>
+<simpara>Before we can create and manipulate things, we need to know something about these things, what their nature is and what we can do with them. There are things we need to count, measure and sometimes compare. Java has this concept of <emphasis>types</emphasis>, it is its way of classifying things.</simpara>
+<section xml:id="variables_2">
+<title>Variables</title>
+<simpara>A variable is a container of data. Think of it like a box where you could store stuff. You would put something into this box and then store it away. At some point in time, you may get this box, take out what’s inside and replace it with something else. If you have other boxes where you store other stuff, you could use labels so you could easily locate and identify them. A programming variable isn’t much different. It operates exactly like that.</simpara>
+<simpara>When we create a variable, we are setting aside an area in computer memory. We are giving a variable a name, so that later on when we need it, we will retrieve it by name. Using  variables in programming involves (a) declaring a variable (b) initializing that variable and giving it initial value (c) retrieving the data held by the variable and (d) replacing the data held by the variable with something else.</simpara>
+<formalpara>
+<title>Listing 6-1</title>
+<para>
+<screen>String word; <co xml:id="CO5-1"/>
+word = "Hello world"; <co xml:id="CO5-2"/>
+System.out.println(word); // prints "Hello world"
+word = "Hello there"; <co xml:id="CO5-3"/>
+System.out.println(word); // prints "Hello there"</screen>
+</para>
+</formalpara>
+<calloutlist>
+<callout arearefs="CO5-1">
+<para>Declare a variable named <literal>word</literal></para>
+</callout>
+<callout arearefs="CO5-2">
+<para>Initialize the variable with the value "Hello World"</para>
+</callout>
+<callout arearefs="CO5-3">
+<para>Replace the contents of the variable</para>
+</callout>
+</calloutlist>
+<simpara>In the first line of Listing 6-1, we declared a variable that will hold a String data. We did not initialize the variable at the point of declaration. Its perfectly okay to do that. Sometimes it&#8217;s necessary to do that especially if the initial value of the variable will be determined much later in the program.  However, if you do know the initial value of the variable, you may write the declaration and initialization on the same line.</simpara>
+<screen>String word = "Hello World";</screen>
+</section>
+<section xml:id="types">
+<title>Types</title>
+<simpara>A variable declaration has two parts, (a) what kind of data is it supposed to hold and (b) the name of the variable. In our example, the type of the variable is String and its name is word. We don&#8217;t always have to use String when declaring variable but we always have to specify what kind of data we are declaring.</simpara>
+<simpara>Java is a statically and strongly typed language. As such, when we create variables, we need to tell the compiler what kind of data it will hold so that it can (a) allocate the appropriate memory for it and (b) it can do all sorts of type checking on how we are using the variable. Type checking is very useful for programmers, even more so for beginning programmers. It helps us in so many ways, it will not let us do silly things  like the following.</simpara>
+<screen>int a = 10;
+String b = "10";
+a = b; <co xml:id="CO6-1"/>
+
+String c = "Hello";
+String d = "World";
+String e = c + d;
+String f = c - d;<co xml:id="CO6-2"/></screen>
+<calloutlist>
+<callout arearefs="CO6-1">
+<para>Incompatible types. You cannot assign a String to a number</para>
+</callout>
+<callout arearefs="CO6-2">
+<para>Subtraction cannot be performed on Strings</para>
+</callout>
+</calloutlist>
+<simpara>See, type checking won&#8217;t let us disgrace ourselves. It catches silly mistakes at compile time so that you won&#8217;t have to deal with these errors at runtime where they are harder to catch.</simpara>
+<note>
+<simpara>All variables needs to be declared and initialized before they can be used</simpara>
+<formalpara>
+<title>Correct usage</title>
+<para>
+<screen>int i = 10;
+i = i + 1;
+System.out.println(i);</screen>
+</para>
+</formalpara>
+<formalpara>
+<title>Wrong usage</title>
+<para>
+<screen>int i = 1;
+System.out.println(i + j); <co xml:id="CO7-1"/></screen>
+</para>
+</formalpara>
+<calloutlist>
+<callout arearefs="CO7-1">
+<para>The j variable was not defined</para>
+</callout>
+</calloutlist>
+</note>
+<simpara>String is a specific kind of data in Java. It is used to hold words, or more specifically, a collection of alphanumeric characters. So if you would like to store and manipulate things like an address, phone number, email, last name, first name etc, you should use the String type.</simpara>
+<simpara>If String was the only kind of data you can work with, that would limit the usefulness of your programs terribly. Happily, that&#8217;s not the case. We can work with other kinds of data like numbers, booleans, dates etc.</simpara>
+<simpara>If you need to count something we can use the types used for counting (<emphasis>byte, short, int</emphasis> and <emphasis>long</emphasis>). If we need to measure something, we can use <emphasis>float</emphasis> and <emphasis>double</emphasis>. If we need to store the result of comparing things (truth or falsity) we can use the <emphasis>boolean</emphasis> type.</simpara>
+<simpara>So why does Java have 4 types for counting things and 2 types for measuring things? It&#8217;s got something to do with capacity. A short can hold much more data than a byte. An int can hold more data than a short and long is on top of the food chain. A double holds much bigger data than a float, and it is more precise too.</simpara>
+<note>
+<simpara>float has a precision of 7 digits while double has 15 digits precision, after the decimal point, that is.</simpara>
+</note>
+<variablelist>
+<title>Primitive types</title>
+<varlistentry>
+<term><emphasis role="strong">byte</emphasis></term>
+<listitem>
+<simpara>A 1 byte signed integer. Default value is 0</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">short</emphasis></term>
+<listitem>
+<simpara>A 2 byte signed integer. Also defaults to 0</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">int</emphasis></term>
+<listitem>
+<simpara>A 4 byte integer. Same as the first two, also defaults to 0</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">long</emphasis></term>
+<listitem>
+<simpara>The longest of all the whole numbers. This is an 8 byte integer. Defaults to 0 also when not explicitly assigned a value</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">float</emphasis></term>
+<listitem>
+<simpara>A signed 4 byte floating point (IEEE 754 32 bit floating point)</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">double</emphasis></term>
+<listitem>
+<simpara>Also a signed floating point but this one is 64 bits</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">char</emphasis></term>
+<listitem>
+<simpara>16 bit unicode character. Lowest value is 0 and highest value is 65535 (\u0000 to \uFFFF)</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">boolean</emphasis></term>
+<listitem>
+<simpara>Use this when storing values that are results of comparisons , for example</simpara>
+<screen>boolean z = (a &gt; b)</screen>
+<simpara>There are two literal values you can use for the boolean type; <literal>true</literal> and <literal>false</literal>. Listing 6-2 shows some basic usage</simpara>
+<formalpara>
+<title>Listing 6-2</title>
+<para>
+<screen>boolean a = false;
+boolean b; <co xml:id="CO8-1"/>
+System.out.println(a); //prints false
+System.out.println(b); //prints false also</screen>
+</para>
+</formalpara>
+<calloutlist>
+<callout arearefs="CO8-1">
+<para>Default value for a boolean type is false</para>
+</callout>
+</calloutlist>
+</listitem>
+</varlistentry>
+</variablelist>
+<tip>
+<simpara>There is a formula to determine the lowest and highest value for whole numbers. The lowest value is equal to  (-1) <emphasis role="strong">2</emphasis> <superscript>(n-1)</superscript> and the highest value is <emphasis role="strong">2</emphasis> <superscript>(n-1)</superscript> - 1, where <emphasis>n</emphasis>=number of bits. So, for a byte which is 8 bits long (1 byte is 8 bits), lowest value = (-1) <emphasis role="strong">2</emphasis> <superscript>8-1</superscript> = -128</simpara>
+</tip>
+</section>
+<section xml:id="references_types">
+<title>References Types</title>
+<simpara>The native types discussed in the previous section are called primitive types because they are part of the language definition. They are fixed at eight. We cannot add or define  new primitive types. Happily, Java allows us to create new types of our own. These user defined types are called reference types. We will not be discussing how to create and work with reference types in this chapter, we will defer  that discussion for later. But it is important to say that creation of new types involves writing classes and creating objects.</simpara>
+<simpara>The main difference between a reference and a primitive type is their size. Primitives cannot get any bigger than 8 bytes. They are scalar data and the biggest data type we can define is a long two&#8217;s complement integer. And that is an 8 byte integer. The size of a reference type on the other hand, cannot be determined as easily as a primitive&#8217;s because it is after all, a composite kind of data.</simpara>
+<note>
+<simpara>Scalar value is one unit of data. Just like in algebra, a scalar value is a single number as opposed to either a vector or matrix which are composites</simpara>
+</note>
+<formalpara>
+<title>Listing 6-3</title>
+<para>
+<screen>int x = 95;
+int y = 50;</screen>
+</para>
+</formalpara>
+<simpara>Listing 6-3 shows example of two primitive variables. <emphasis>X</emphasis> contains a single data, which is 95 and <emphasis>Y</emphasis> contains only the integer 50.</simpara>
+<formalpara>
+<title>Listing 6-4</title>
+<para>
+<screen>class Point {
+  int x = 95;
+  int y = 50
+}</screen>
+</para>
+</formalpara>
+<simpara>Listing 6-4 shows how to define a new type called Point. It was made possible by aggregating two integer variables.</simpara>
+<tip>
+<simpara>In case you are wondering, <emphasis>String</emphasis> is a reference type. It is part of the JDK library. There is a full discussion of Strings in later chapters</simpara>
+</tip>
+</section>
+<section xml:id="exercises_2">
+<title>Exercises</title>
+<variablelist>
+<varlistentry>
+<term><emphasis role="strong">Exercise 6-1</emphasis></term>
+<listitem>
+<simpara>Compute for the lowest value and highest value of long, short, byte and int</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">Exercise 6-2</emphasis></term>
+<listitem>
+<simpara>Make a program that creates variables for each of 8 primitive types and print out each one of them</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+</section>
+<section xml:id="reserved_words_and_identifiers">
+<title>Reserved Words and Identifiers</title>
+<simpara>Java programs are made up of words and symbols. Some of these words are pre-defined in the language. These are called <emphasis>reserved words</emphasis>, they have special meaning to the compiler and the runtime. Some of the words we get to make up by ourselves, these are called <emphasis>identifiers</emphasis>. Examples of identifiers are names of classes, interfaces, variables, constants etc.</simpara>
+<note>
+<simpara>Up until this point, we still refer to subroutines or procedures as functions. In Java, they are referred to as <emphasis>methods</emphasis>. So from hereon forward, we will start referring to functions as methods</simpara>
+</note>
+<simpara>Programs are made up of English-like statements and instructions. When they go through compilation, each word and symbol is analyzed and broken up to constituent parts or tokens.
+The compiler will try to make sense of what you have written. If the program is written according to the syntactical rules, then the compilation proceeds, otherwise we get an error.</simpara>
+<simpara>Imagine the times when you were typing a document in a word processor. Did you ever see those squiggly lines? Maybe there was something wrong with the grammar or that you typed a word that the processor does not recognize. The word wasn&#8217;t part of its dictionary yet. What the word processor did was to break down your document to its constituent parts. Your doc was tokenized then analyzed and compared against a set of rules. That process is very similar to our compilation procedure.</simpara>
+<section xml:id="reserved_words">
+<title>Reserved Words</title>
+<figure>
+<title>Reserved Words</title>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/book/keywords.jpg" contentwidth="90%"/>
+</imageobject>
+<textobject><phrase>keywords</phrase></textobject>
+</mediaobject>
+</figure>
+<simpara>You don’t need to memorize them, but I suspect that as you grow in the practice, you will be able to commit most of them in memory.</simpara>
+</section>
+<section xml:id="identifiers">
+<title>Identifiers</title>
+<simpara>Identifiers are that part of our program which we get to name. These parts are (a) classes (b) interfaces (c) variables (d) constants (e) enums (f) methods and (g) packages. Listing 8-1 shows a sample code where identifiers are highlighted</simpara>
+<formalpara>
+<title>Listing 8-1</title>
+<para>
+<screen>class Person { <co xml:id="CO9-1"/>
+  String firstname = "John"; <co xml:id="CO9-2"/>
+  String lastname = "Doe"; <co xml:id="CO9-3"/>
+
+  void printName() { <co xml:id="CO9-4"/>
+    System.out.println(lastname +  " , " + firstname);
+  }
+}</screen>
+</para>
+</formalpara>
+<calloutlist>
+<callout arearefs="CO9-1">
+<para>keyword = <literal>class</literal>, identifier = <emphasis role="strong">Person</emphasis>(<emphasis>class</emphasis>)</para>
+</callout>
+<callout arearefs="CO9-2">
+<para>identifier = <emphasis role="strong">firstname</emphasis>(<emphasis>variable</emphasis>)</para>
+</callout>
+<callout arearefs="CO9-3">
+<para>identifier = <emphasis role="strong">lastname</emphasis>(<emphasis>variable</emphasis>)</para>
+</callout>
+<callout arearefs="CO9-4">
+<para>keyword = <literal>void</literal>, identifier = <emphasis role="strong">printName</emphasis>(<emphasis>method</emphasis>)</para>
+</callout>
+</calloutlist>
+</section>
+<section xml:id="valid_identifiers">
+<title>Valid Identifiers</title>
+<simpara>Here are the rules for creating identifiers</simpara>
+<orderedlist numeration="arabic">
+<listitem>
+<simpara><emphasis role="strong">Alphanumeric characters only</emphasis>. We have to limit our character use to the letters a-z, A-Z and 0-9</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">No Special Characters</emphasis>. We can use the dollar sign and underscore, other than that, all special chars are off limits</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">No Reserved words</emphasis>. Can&#8217;t use any of the 50 keywords as an identifier. We also cannot use literals like <literal>true</literal>, <literal>false</literal> or <literal>null</literal></simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">First letter matters</emphasis>. It has to start with either a letter, underscore or dollar sign.  I won&#8217;t advise that you use the dollar sign or the underscore. Some code generators actually use those characters, so you might want to stay away from them. Just stick with plain letters</simpara>
+</listitem>
+<listitem>
+<simpara><emphasis role="strong">Make it descriptive</emphasis>. This last item is not really a rule but it should be. There is no technical limit to the number of characters in an identifier, so you shouldn&#8217;t have an excuse for variable names <emphasis>i, j, x, y</emphasis>. I am guilty of violating this last item in this book, but hey, I&#8217;m trying to prevent code samples from wrapping up</simpara>
+</listitem>
+</orderedlist>
+</section>
+<section xml:id="exercises_3">
+<title>Exercises</title>
+<variablelist>
+<varlistentry>
+<term><emphasis role="strong">Exercise 8-1</emphasis></term>
+<listitem>
+<simpara>Try to compile the following code</simpara>
+<screen>class 1Hello {
+}</screen>
+<simpara>What happened. Take note of the error and fix it.</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">Exercise 8-2</emphasis></term>
+<listitem>
+<simpara>Consider the following code</simpara>
+<screen>class Test {
+  public stati void main(String []args) {
+    System.out.println("Can you spot the error");
+  }
+}</screen>
+<simpara>Can you spot the error without compiling? Why wouldn&#8217;t it compile? What do you need to do to fix it?</simpara>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><emphasis role="strong">Exercise 8-3</emphasis></term>
+<listitem>
+<simpara>Which ones are illegal identifiers</simpara>
+</listitem>
+</varlistentry>
+</variablelist>
+<orderedlist numeration="loweralpha">
+<listitem>
+<simpara><literal>This_is_AnAwfullyLongVariableName</literal></simpara>
+</listitem>
+<listitem>
+<simpara><literal>1Lastname</literal></simpara>
+</listitem>
+<listitem>
+<simpara><literal>Last1Name</literal></simpara>
+</listitem>
+<listitem>
+<simpara><literal>$Firstname</literal></simpara>
+</listitem>
+<listitem>
+<simpara><literal>#Address</literal></simpara>
+</listitem>
+</orderedlist>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+</section>
+<section xml:id="operators_2">
+<title>Operators</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="expressions_statements_and_blocks">
+<title>Expressions, Statements and Blocks</title>
+<simpara>casting
+- downcast
+- upcast
+- string casting</simpara>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="printing_things">
+<title>Printing Things</title>
+<simpara>You&#8217;ve already seen how to print things to the screen since the first chapter. There&#8217;s not much to it. We simply pass a String to the println function and we&#8217;re pretty much done. But there are a couple more things that are useful to know about printing. That is what we&#8217;ll explore in this chapter.</simpara>
+<section xml:id="printing_multiple_lines">
+<title>Printing Multiple lines</title>
+<formalpara>
+<title>Listing 10-1</title>
+<para>
+<programlisting language="java" linenumbering="unnumbered">System.out.println("The quick brown");
+System.out.println("fox jumped over the head");
+System.out.println("of the lazy dog");</programlisting>
+</para>
+</formalpara>
+<formalpara>
+<title>Output of listing 10-1</title>
+<para>
+<screen>The quick brown
+fox jumped over the head
+of the lazy dog</screen>
+</para>
+</formalpara>
+<simpara>No surprises there, we already that <literal>println</literal> adds a carriage return and linefeed to the output, we don&#8217;t even need to use the newline (<emphasis role="strong">\n</emphasis>) escape sequence within the string.</simpara>
+</section>
+<section xml:id="printing_on_the_same_line">
+<title>Printing on the same line</title>
+<simpara>If you need to output text on the screen without the newline feed, use the <emphasis role="strong">print</emphasis> function instead of the println.</simpara>
+<formalpara>
+<title>Listing 10-2</title>
+<para>
+<programlisting language="java" linenumbering="unnumbered">System.out.print("The quick brown ");
+System.out.print("fox jumped over the head ");
+System.out.print("of the lazy dog ");</programlisting>
+</para>
+</formalpara>
+<formalpara>
+<title>Output of listing 10-2</title>
+<para>
+<screen>The quick brown fox jumped over the head of the lazy dog</screen>
+</para>
+</formalpara>
+<simpara>We&#8217;ll do a little bit of experiment. We will try to emulate the behavior of the println function using the newline escape sequence with the print function.</simpara>
+<formalpara>
+<title>Listing 10-3</title>
+<para>
+<programlisting language="java" linenumbering="unnumbered">System.out.print("The quick brown\n");
+System.out.print("fox jumped over the head\n");
+System.out.print("of the lazy dog\n");</programlisting>
+</para>
+</formalpara>
+<formalpara>
+<title>Output of listing 10-3</title>
+<para>
+<screen>The quick brown
+fox jumped over the head
+of the lazy dog</screen>
+</para>
+</formalpara>
+<simpara>As you can see with the output, it is identical to the output of listing 10-1 earlier.</simpara>
+</section>
+<section xml:id="printing_expressions">
+<title>Printing expressions</title>
+<simpara>We&#8217;ve printed lots of things already but all of them are strings. You might begin to think that only Strings can be printed. That is not the case. We can print anything.</simpara>
+<formalpara>
+<title>Listing 10-4, More printing</title>
+<para>
+<screen>System.out.println(1123456); <co xml:id="CO10-1"/>
+System.out.println(10.2); //
+int a = 7, b=7;
+System.out.println(a); <co xml:id="CO10-2"/>
+System.out.println();
+System.out.println();
+System.out.println();
+System.out.println(1 + 2); <co xml:id="CO10-3"/>
+System.out.println(a &gt; b); <co xml:id="CO10-4"/>
+System.out.println("1 + 2 = " + (1 + 2)); <co xml:id="CO10-5"/></screen>
+</para>
+</formalpara>
+<calloutlist>
+<callout arearefs="CO10-1">
+<para>Print a literal value</para>
+</callout>
+<callout arearefs="CO10-2">
+<para>Print a variable</para>
+</callout>
+<callout arearefs="CO10-3">
+<para>Evaluate literal expressions before printing</para>
+</callout>
+<callout arearefs="CO10-4">
+<para>Even boolean expressions are okay</para>
+</callout>
+<callout arearefs="CO10-5">
+<para>Complex expressions are also okay</para>
+</callout>
+</calloutlist>
+<simpara>Expressions inside the println method will be evaluated first before it gets printed. Any expression that results to a value can be printed inside the println whether it be arithmetic, logical or simply combining Strings.</simpara>
+<note>
+<simpara>Numbers and math operators may appear within the string double quotes. When they do, they will not be evaluated as expressions. They stay as string literals.</simpara>
+</note>
+<figure>
+<title>Expressions</title>
+<mediaobject>
+<imageobject>
+<imagedata fileref="images/book/println-expression.jpg" contentwidth="100%"/>
+</imageobject>
+<textobject><phrase>println expression</phrase></textobject>
+</mediaobject>
+</figure>
+<note>
+<simpara>When Java encounters a complex expression, it evaluates the arithmetic or boolean expressions. As you can see in the figure above, the arithmetic sum of 1 + 2 was evaluated first, then the result was combined with the string literal.</simpara>
+</note>
+</section>
+<section xml:id="formatted_printing">
+<title>Formatted Printing</title>
+<simpara>When you need to output a combination of strings and variable values, the most natural way to do it is by string concatenation. You&#8217;ve already seen this technique in the previous section, it looks like the example below.</simpara>
+<formalpara>
+<title>Listing 10-5</title>
+<para>
+<screen>int a = 1;
+int b = 2;
+System.out.println("a + b = " + (a + b));</screen>
+</para>
+</formalpara>
+<simpara>There is nothing wrong with concatenating strings but it does suffer from some problems (a) it&#8217;s cumbersome and (b) it&#8217;s prone to error. Can you imagine if you had to write something like this</simpara>
+<formalpara>
+<title>Listing 10-6</title>
+<para>
+<screen>int a = 1;
+int b = 2;
+System.out.println("a = " + a + ", "b = " + b);</screen>
+</para>
+</formalpara>
+<simpara>This kind of coding can get ugly and difficult pretty quickly. You can almost get cross-eyed just looking at it and checking if the pairs of double quotes are correct. We&#8217;re just dealing with 2 variables in the above example, imagine if we were dealing with more. Fortunately, there are other ways of handling these kinds of tasks. Let&#8217;s do over the code example above using a more appropriate printing method.</simpara>
+<formalpara>
+<title>Listing 10.7</title>
+<para>
+<screen>int a = 1;
+int b = 2;
+System.out.printf("a = %d, b = %d", a,b);</screen>
+</para>
+</formalpara>
+<simpara>The <emphasis role="strong">printf</emphasis> method behaves like the print and println. All three can handle whatever you throw at them. But there are two things that printf can handle exceptionally well, it can (a) handle positional parameters and (b) formatting.</simpara>
+<simpara>Printf allows us to use place holders or format specifiers inside a string literal. These placeholders will be filled up by the actual values that are also specified within the method. In the example above, <emphasis>%d</emphasis> is a placeholder. There are two  of them because there are two variables also to the right of the String literal. The first <emphasis>%d</emphasis> corresponds to variable a and the second <emphasis>%d</emphasis> is for variable b.</simpara>
+<simpara>The format specifier we used in the example was written as %d because it needed to handle integer values. If we wanted it to deal with another type of data, we would have used a different specifier. You can format quite a few things with printf.</simpara>
+<itemizedlist mark="none">
+<listitem>
+<simpara>&#10063; other format specifiers</simpara>
+</listitem>
+</itemizedlist>
+</section>
+<section xml:id="references_2">
+<title>References</title>
+<simpara><link xl:href="https://docs.oracle.com/javase/tutorial/java/data/numberformat.html">https://docs.oracle.com/javase/tutorial/java/data/numberformat.html</link></simpara>
+<simpara><link xl:href="https://sharkysoft.com/archive/printf/docs/javadocs/lava/clib/stdio/doc-files/specification.htm">https://sharkysoft.com/archive/printf/docs/javadocs/lava/clib/stdio/doc-files/specification.htm</link></simpara>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+</section>
+<section xml:id="making_decisions">
+<title>Making Decisions</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="looping">
+<title>Looping</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="exceptions">
+<title>Exceptions</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="methods">
+<title>Methods</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="classes_and_objects">
+<title>Classes and Objects</title>
+<itemizedlist>
+<listitem>
+<simpara>.toString()</simpara>
+</listitem>
+<listitem>
+<simpara>.equals()</simpara>
+</listitem>
+<listitem>
+<simpara>Reference types, why are they called Reference. Becase we handle the value using their object reference</simpara>
+</listitem>
+<listitem>
+<simpara>Refence is handled via the reference, while primitve type are handled directly using their values</simpara>
+</listitem>
+</itemizedlist>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="accessibility">
+<title>Accessibility</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="interfaces_and_abstract_classes">
+<title>Interfaces and Abstract Classes</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="this_and_super">
+<title>This and Super</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="strings">
+<title>Strings</title>
+<simpara>String type coercion, conversion</simpara>
+<simpara>Substring
+split
+tokenize</simpara>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="java_lang">
+<title>java.lang</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="build_files">
+<title>Build Files</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="collections">
+<title>Collections</title>
+<itemizedlist>
+<listitem>
+<simpara>Generics
+-</simpara>
+</listitem>
+</itemizedlist>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="database_programming">
+<title>Database Programming</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+<section xml:id="threads">
+<title>Threads</title>
+<simpara><?asciidoc-pagebreak?></simpara>
+</section>
+</article>
