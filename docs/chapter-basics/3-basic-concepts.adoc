@@ -19,7 +19,7 @@ Byte codes, however, cannot be executed directly by the operating system (OS). T
 
 Java is portable at the byte code level. You can write and compile your program in one OS, say Windows and run it on another OS without requiring any modification. Sun Microsystem,  the former custodian of the Java technology, came up with the WORA slogan during the early days of Java, it stood for Write Once Run Anywhere.
 
-image::images/book/work-cycle.jpg[title="Work Cycle", width=100%]
+image::images/book/work-cycle.jpg[title="Work Cycle", width=90%]
 
 Each operating system have their own version of the virtual machine but what runs on one virtual machine, will run on all.
 
