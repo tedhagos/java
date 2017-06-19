@@ -1,5 +1,8 @@
 == Program Structure
 
+=== Classes and Objects
+
+
 
 === Class
 
@@ -7,12 +10,25 @@ A typical Java program would contain one class definition in a Java source file.
 
 .Listing 5-1, Hello.java
 ----
-class Hello
-{
-}
+class Hello // <1> <2>
+{ // <3>
+} // <4>
 ----
+<1> reserved word
+<2> class name, also known as class identifier
+<3> opening curly brace, begins the class definition
+<4> closing curly brace, ends the class definition
 
-Listing 5-1 above shows the basic structure a class. The reserved word `class` is used followed by an identifier which is the name of the class. The identifier or the class name is something that you will provide. It could be Person, BankAccount, Service, Dog etc. Naming your class will be entirely up to you. The class declaration is also accompanied by   a pair of French brackets or curly braces. The braces constitutes the body of the class. The class body is empty right  now because we haven’t done anything yet, but that’s okay. It’s perfectly legal to compile a class with an empty body, it won’t be very useful but it will compile.
+Listing 5-1 above shows the basic structure a class. The reserved word
+`class` is used followed by an identifier which is the name of the
+class, in the example above, that identifier is *Hello*. The
+identifier or the class name is something that you will provide. It
+could be Person, BankAccount, Service, Dog etc. Naming your class is entirely up to you. 
+
+
+The class declaration is also accompanied by   a pair of French brackets or curly braces. The braces constitutes the body of the class. The class body is empty right  now because we haven’t done anything yet, but that’s okay. It’s perfectly legal to compile a class with an empty body, it won’t be very useful but it will compile.
+
+
 
 === Comments
 
@@ -166,6 +182,9 @@ The missing semicolon will cause the compiler to treat the statements in lines 3
 
 
 == Blocks
+
+
+
 
 
 

@@ -1,12 +1,22 @@
 == Hello World
 
-Beginning programmers start their coding journey with the hello world program. While it may seem silly and quite lacking of any practical or commercial value, it does have an educational value. The simple hello world program will instruct us on (a) how to write and compile a source file (b) what gets executed first when a program is ran, and (c) how to run a Java program.
+We'll start with the basic task of writing a simple program. This may
+seem like a silly program that lacks any real-world value, but it does
+have an education value. This basic program will instruct us on (a)
+how to write and compile a source file (b) what gets executed first
+when a program is ran, and (c) how to execute a java program.
 
-There will be a couple of things in our first program that will not be immediately obvious nor will it make sense, but we won’t let those get in our way. We can safely side step some aspects of the example code and ignore them for now. We’ll circle back to them soon enough, in later chapters.
+There will be a couple of things that may not be immediately obvious
+nor will they make sense when we write the hello program but we won't
+be bogged down by those details. At least not yet. We will side step
+some details and behaviors of the program but we will circle back to
+them in later chapters.
 
-=== Writing our first Program
 
-1. **Choose a folder** where you can save your program source files. The best folder is where you have read, write and execute permissions. Your home folder is a good place to start. Listings  4-1 and 4-2 shows how to create a directory named “practice” under your home folder.
+=== Our firsrt program
+
+1. **Choose a folder** where you will save the  program source files.
+   The best location is where you have read, write and execute permissions. Your home folder is a good place to start. Listings  4-1 and 4-2 shows how to create a directory named “practice” under your home folder.
 +
 .Listing 4-1, Windows CLI
 ----

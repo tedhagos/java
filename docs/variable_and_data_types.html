@@ -1,35 +1,154 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>6. Variable and Data Types</title><link rel="stylesheet" type="text/css" href="stylesheet.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.html" title="Java Basics" /><link rel="up" href="index.html" title="Java Basics" /><link rel="prev" href="blocks.html" title="5. Blocks" /><link rel="next" href="reserved_words_and_identifiers.html" title="7. Reserved Words and Identifiers" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6. Variable and Data Types</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="blocks.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="reserved_words_and_identifiers.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="variable_and_data_types"></a>6. Variable and Data Types</h2></div></div></div><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: none; "><li class="listitem" style="list-style-type: none">❏ Literals</li><li class="listitem" style="list-style-type: none">❏ New ways to write literals in Java 8</li></ul></div><p>When we program, we create and manipulate things. This is usually done by adding, subtracting, dividing, multiplying or comparing them. Sometimes we mash them together like when we combine two words.  We also store things so that we can retrieve them for later use. This is an oversimplification of what programmers do but at a high level, that should be pretty close.</p><p>Before we can create and manipulate things, we need to know something about these things, what their nature is and what we can do with them. There are things we need to count, measure and sometimes compare. Java has this concept of <span class="emphasis"><em>types</em></span>, it is its way of classifying things.</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variables_2"></a>6.1. Variables</h3></div></div></div><p>A variable is a container of data. Think of it like a box where you could store stuff. You would put something into this box and then store it away. At some point in time, you may get this box, take out what’s inside and replace it with something else. If you have other boxes where you store other stuff, you could use labels so you could easily locate and identify them. A programming variable isn’t much different. It operates exactly like that.</p><p>When we create a variable, we are setting aside an area in computer memory. We are giving a variable a name, so that later on when we need it, we will retrieve it by name. Using  variables in programming involves (a) declaring a variable (b) initializing that variable and giving it initial value (c) retrieving the data held by the variable and (d) replacing the data held by the variable with something else.</p><p><strong>Listing 6-1. </strong>
-</p><pre class="screen">String word; <a id="CO5-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
-word = "Hello world"; <a id="CO5-2"></a><span><img src="images/callouts/2.png" alt="2" border="0" /></span>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>6. Variable and Data Types</title><link rel="stylesheet" type="text/css" href="stylesheet.css" /><meta name="generator" content="DocBook XSL Stylesheets V1.79.1" /><link rel="home" href="index.html" title="Java Basics" /><link rel="up" href="index.html" title="Java Basics" /><link rel="prev" href="blocks.html" title="5. Blocks" /><link rel="next" href="reserved_words_and_identifiers.html" title="7. Reserved Words and Identifiers" /></head><body><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">6. Variable and Data Types</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="blocks.html">Prev</a> </td><th width="60%" align="center"> </th><td width="20%" align="right"> <a accesskey="n" href="reserved_words_and_identifiers.html">Next</a></td></tr></table><hr /></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="variable_and_data_types"></a>6. Variable and Data Types</h2></div></div></div>
+
+<div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: none; "><li class="listitem" style="list-style-type: none">
+❏ Literals
+</li><li class="listitem" style="list-style-type: none">
+❏ New ways to write literals in Java 8
+</li></ul></div>
+<p>When we program, we create and manipulate things. This is usually done by adding, subtracting, dividing, multiplying or comparing them. Sometimes we mash them together like when we combine two words.  We also store things so that we can retrieve them for later use. This is an oversimplification of what programmers do but at a high level, that should be pretty close.</p>
+<p>Before we can create and manipulate things, we need to know something about these things, what their nature is and what we can do with them. There are things we need to count, measure and sometimes compare. Java has this concept of <span class="emphasis"><em>types</em></span>, it is its way of classifying things.</p>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="variables_2"></a>6.1. Variables</h3></div></div></div>
+
+<p>A variable is a container of data. Think of it like a box where you could store stuff. You would put something into this box and then store it away. At some point in time, you may get this box, take out what’s inside and replace it with something else. If you have other boxes where you store other stuff, you could use labels so you could easily locate and identify them. A programming variable isn’t much different. It operates exactly like that.</p>
+<p>When we create a variable, we are setting aside an area in computer memory. We are giving a variable a name, so that later on when we need it, we will retrieve it by name. Using  variables in programming involves (a) declaring a variable (b) initializing that variable and giving it initial value (c) retrieving the data held by the variable and (d) replacing the data held by the variable with something else.</p>
+<p>
+<strong>Listing 6-1. </strong>
+
+</p><pre class="screen">String word; <a id="CO6-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
+word = "Hello world"; <a id="CO6-2"></a><span><img src="images/callouts/2.png" alt="2" border="0" /></span>
 System.out.println(word); // prints "Hello world"
-word = "Hello there"; <a id="CO5-3"></a><span><img src="images/callouts/3.png" alt="3" border="0" /></span>
+word = "Hello there"; <a id="CO6-3"></a><span><img src="images/callouts/3.png" alt="3" border="0" /></span>
 System.out.println(word); // prints "Hello there"</pre><p>
-</p><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO5-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left"><p>Declare a variable named <code class="literal">word</code></p></td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO5-2"><span><img src="images/callouts/2.png" alt="2" border="0" /></span></a> </p></td><td valign="top" align="left"><p>Initialize the variable with the value "Hello World"</p></td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO5-3"><span><img src="images/callouts/3.png" alt="3" border="0" /></span></a> </p></td><td valign="top" align="left"><p>Replace the contents of the variable</p></td></tr></table></div><p>In the first line of Listing 6-1, we declared a variable that will hold a String data. We did not initialize the variable at the point of declaration. Its perfectly okay to do that. Sometimes it’s necessary to do that especially if the initial value of the variable will be determined much later in the program.  However, if you do know the initial value of the variable, you may write the declaration and initialization on the same line.</p><pre class="screen">String word = "Hello World";</pre></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="types"></a>6.2. Types</h3></div></div></div><p>A variable declaration has two parts, (a) what kind of data is it supposed to hold and (b) the name of the variable. In our example, the type of the variable is String and its name is word. We don’t always have to use String when declaring variable but we always have to specify what kind of data we are declaring.</p><p>Java is a statically and strongly typed language. As such, when we create variables, we need to tell the compiler what kind of data it will hold so that it can (a) allocate the appropriate memory for it and (b) it can do all sorts of type checking on how we are using the variable. Type checking is very useful for programmers, even more so for beginning programmers. It helps us in so many ways, it will not let us do silly things  like the following.</p><pre class="screen">int a = 10;
+
+</p>
+<div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO6-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Declare a variable named <code class="literal">word</code></p>
+</td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO6-2"><span><img src="images/callouts/2.png" alt="2" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Initialize the variable with the value "Hello World"</p>
+</td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO6-3"><span><img src="images/callouts/3.png" alt="3" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Replace the contents of the variable</p>
+</td></tr></table></div>
+<p>In the first line of Listing 6-1, we declared a variable that will hold a String data. We did not initialize the variable at the point of declaration. Its perfectly okay to do that. Sometimes it’s necessary to do that especially if the initial value of the variable will be determined much later in the program.  However, if you do know the initial value of the variable, you may write the declaration and initialization on the same line.</p>
+<pre class="screen">String word = "Hello World";</pre>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="types"></a>6.2. Types</h3></div></div></div>
+
+<p>A variable declaration has two parts, (a) what kind of data is it supposed to hold and (b) the name of the variable. In our example, the type of the variable is String and its name is word. We don’t always have to use String when declaring variable but we always have to specify what kind of data we are declaring.</p>
+<p>Java is a statically and strongly typed language. As such, when we create variables, we need to tell the compiler what kind of data it will hold so that it can (a) allocate the appropriate memory for it and (b) it can do all sorts of type checking on how we are using the variable. Type checking is very useful for programmers, even more so for beginning programmers. It helps us in so many ways, it will not let us do silly things  like the following.</p>
+<pre class="screen">int a = 10;
 String b = "10";
-a = b; <a id="CO6-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
+a = b; <a id="CO7-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
 
 String c = "Hello";
 String d = "World";
 String e = c + d;
-String f = c - d;<a id="CO6-2"></a><span><img src="images/callouts/2.png" alt="2" border="0" /></span></pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO6-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left"><p>Incompatible types. You cannot assign a String to a number</p></td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO6-2"><span><img src="images/callouts/2.png" alt="2" border="0" /></span></a> </p></td><td valign="top" align="left"><p>Subtraction cannot be performed on Strings</p></td></tr></table></div><p>See, type checking won’t let us disgrace ourselves. It catches silly mistakes at compile time so that you won’t have to deal with these errors at runtime where they are harder to catch.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png" /></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>All variables needs to be declared and initialized before they can be used</p><p><strong>Correct usage. </strong>
+String f = c - d;<a id="CO7-2"></a><span><img src="images/callouts/2.png" alt="2" border="0" /></span></pre>
+<div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO7-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Incompatible types. You cannot assign a String to a number</p>
+</td></tr><tr><td width="5%" valign="top" align="left"><p><a href="#CO7-2"><span><img src="images/callouts/2.png" alt="2" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Subtraction cannot be performed on Strings</p>
+</td></tr></table></div>
+<p>See, type checking won’t let us disgrace ourselves. It catches silly mistakes at compile time so that you won’t have to deal with these errors at runtime where they are harder to catch.</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png" /></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+<p>All variables needs to be declared and initialized before they can be used</p>
+<p>
+<strong>Correct usage. </strong>
+
 </p><pre class="screen">int i = 10;
 i = i + 1;
 System.out.println(i);</pre><p>
-</p><p><strong>Wrong usage. </strong>
+
+</p>
+<p>
+<strong>Wrong usage. </strong>
+
 </p><pre class="screen">int i = 1;
-System.out.println(i + j); <a id="CO7-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span></pre><p>
-</p><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO7-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left"><p>The j variable was not defined</p></td></tr></table></div></td></tr></table></div><p>String is a specific kind of data in Java. It is used to hold words, or more specifically, a collection of alphanumeric characters. So if you would like to store and manipulate things like an address, phone number, email, last name, first name etc, you should use the String type.</p><p>If String was the only kind of data you can work with, that would limit the usefulness of your programs terribly. Happily, that’s not the case. We can work with other kinds of data like numbers, booleans, dates etc.</p><p>If you need to count something we can use the types used for counting (<span class="emphasis"><em>byte, short, int</em></span> and <span class="emphasis"><em>long</em></span>). If we need to measure something, we can use <span class="emphasis"><em>float</em></span> and <span class="emphasis"><em>double</em></span>. If we need to store the result of comparing things (truth or falsity) we can use the <span class="emphasis"><em>boolean</em></span> type.</p><p>So why does Java have 4 types for counting things and 2 types for measuring things? It’s got something to do with capacity. A short can hold much more data than a byte. An int can hold more data than a short and long is on top of the food chain. A double holds much bigger data than a float, and it is more precise too.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png" /></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>float has a precision of 7 digits while double has 15 digits precision, after the decimal point, that is.</p></td></tr></table></div><div class="variablelist"><p class="title"><strong>Primitive types</strong></p><dl class="variablelist"><dt><span class="term"><span class="strong"><strong>byte</strong></span></span></dt><dd>A 1 byte signed integer. Default value is 0</dd><dt><span class="term"><span class="strong"><strong>short</strong></span></span></dt><dd>A 2 byte signed integer. Also defaults to 0</dd><dt><span class="term"><span class="strong"><strong>int</strong></span></span></dt><dd>A 4 byte integer. Same as the first two, also defaults to 0</dd><dt><span class="term"><span class="strong"><strong>long</strong></span></span></dt><dd>The longest of all the whole numbers. This is an 8 byte integer. Defaults to 0 also when not explicitly assigned a value</dd><dt><span class="term"><span class="strong"><strong>float</strong></span></span></dt><dd>A signed 4 byte floating point (IEEE 754 32 bit floating point)</dd><dt><span class="term"><span class="strong"><strong>double</strong></span></span></dt><dd>Also a signed floating point but this one is 64 bits</dd><dt><span class="term"><span class="strong"><strong>char</strong></span></span></dt><dd>16 bit unicode character. Lowest value is 0 and highest value is 65535 (\u0000 to \uFFFF)</dd><dt><span class="term"><span class="strong"><strong>boolean</strong></span></span></dt><dd><p class="simpara">Use this when storing values that are results of comparisons , for example</p><pre class="screen">boolean z = (a &gt; b)</pre><p class="simpara">There are two literal values you can use for the boolean type; <code class="literal">true</code> and <code class="literal">false</code>. Listing 6-2 shows some basic usage</p><p><strong>Listing 6-2. </strong>
+System.out.println(i + j); <a id="CO8-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span></pre><p>
+
+</p>
+<div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO8-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>The j variable was not defined</p>
+</td></tr></table></div>
+</td></tr></table></div>
+<p>String is a specific kind of data in Java. It is used to hold words, or more specifically, a collection of alphanumeric characters. So if you would like to store and manipulate things like an address, phone number, email, last name, first name etc, you should use the String type.</p>
+<p>If String was the only kind of data you can work with, that would limit the usefulness of your programs terribly. Happily, that’s not the case. We can work with other kinds of data like numbers, booleans, dates etc.</p>
+<p>If you need to count something we can use the types used for counting (<span class="emphasis"><em>byte, short, int</em></span> and <span class="emphasis"><em>long</em></span>). If we need to measure something, we can use <span class="emphasis"><em>float</em></span> and <span class="emphasis"><em>double</em></span>. If we need to store the result of comparing things (truth or falsity) we can use the <span class="emphasis"><em>boolean</em></span> type.</p>
+<p>So why does Java have 4 types for counting things and 2 types for measuring things? It’s got something to do with capacity. A short can hold much more data than a byte. An int can hold more data than a short and long is on top of the food chain. A double holds much bigger data than a float, and it is more precise too.</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png" /></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+<p>float has a precision of 7 digits while double has 15 digits precision, after the decimal point, that is.</p>
+</td></tr></table></div>
+<div class="variablelist"><p class="title"><strong>Primitive types</strong></p><dl class="variablelist"><dt><span class="term"><span class="strong"><strong>byte</strong></span></span></dt><dd>
+A 1 byte signed integer. Default value is 0
+</dd><dt><span class="term"><span class="strong"><strong>short</strong></span></span></dt><dd>
+A 2 byte signed integer. Also defaults to 0
+</dd><dt><span class="term"><span class="strong"><strong>int</strong></span></span></dt><dd>
+A 4 byte integer. Same as the first two, also defaults to 0
+</dd><dt><span class="term"><span class="strong"><strong>long</strong></span></span></dt><dd>
+The longest of all the whole numbers. This is an 8 byte integer. Defaults to 0 also when not explicitly assigned a value
+</dd><dt><span class="term"><span class="strong"><strong>float</strong></span></span></dt><dd>
+A signed 4 byte floating point (IEEE 754 32 bit floating point)
+</dd><dt><span class="term"><span class="strong"><strong>double</strong></span></span></dt><dd>
+Also a signed floating point but this one is 64 bits
+</dd><dt><span class="term"><span class="strong"><strong>char</strong></span></span></dt><dd>
+16 bit unicode character. Lowest value is 0 and highest value is 65535 (\u0000 to \uFFFF)
+</dd><dt><span class="term"><span class="strong"><strong>boolean</strong></span></span></dt><dd>
+<p class="simpara">Use this when storing values that are results of comparisons , for example</p>
+<pre class="screen">boolean z = (a &gt; b)</pre>
+<p class="simpara">There are two literal values you can use for the boolean type; <code class="literal">true</code> and <code class="literal">false</code>. Listing 6-2 shows some basic usage</p>
+<p>
+<strong>Listing 6-2. </strong>
+
 </p><pre class="screen">boolean a = false;
-boolean b; <a id="CO8-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
+boolean b; <a id="CO9-1"></a><span><img src="images/callouts/1.png" alt="1" border="0" /></span>
 System.out.println(a); //prints false
 System.out.println(b); //prints false also</pre><p>
-</p><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO8-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left"><p>Default value for a boolean type is false</p></td></tr></table></div></dd></dl></div><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png" /></td><th align="left">Tip</th></tr><tr><td align="left" valign="top"><p>There is a formula to determine the lowest and highest value for whole numbers. The lowest value is equal to  (-1) <span class="strong"><strong>2</strong></span> <sup>(n-1)</sup> and the highest value is <span class="strong"><strong>2</strong></span> <sup>(n-1)</sup> - 1, where <span class="emphasis"><em>n</em></span>=number of bits. So, for a byte which is 8 bits long (1 byte is 8 bits), lowest value = (-1) <span class="strong"><strong>2</strong></span> <sup>8-1</sup> = -128</p></td></tr></table></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="references_types"></a>6.3. References Types</h3></div></div></div><p>The native types discussed in the previous section are called primitive types because they are part of the language definition. They are fixed at eight. We cannot add or define  new primitive types. Happily, Java allows us to create new types of our own. These user defined types are called reference types. We will not be discussing how to create and work with reference types in this chapter, we will defer  that discussion for later. But it is important to say that creation of new types involves writing classes and creating objects.</p><p>The main difference between a reference and a primitive type is their size. Primitives cannot get any bigger than 8 bytes. They are scalar data and the biggest data type we can define is a long two’s complement integer. And that is an 8 byte integer. The size of a reference type on the other hand, cannot be determined as easily as a primitive’s because it is after all, a composite kind of data.</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png" /></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>Scalar value is one unit of data. Just like in algebra, a scalar value is a single number as opposed to either a vector or matrix which are composites</p></td></tr></table></div><p><strong>Listing 6-3. </strong>
+
+</p>
+<div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><p><a href="#CO9-1"><span><img src="images/callouts/1.png" alt="1" border="0" /></span></a> </p></td><td valign="top" align="left">
+<p>Default value for a boolean type is false</p>
+</td></tr></table></div>
+</dd></dl></div>
+<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png" /></td><th align="left">Tip</th></tr><tr><td align="left" valign="top">
+<p>There is a formula to determine the lowest and highest value for whole numbers. The lowest value is equal to  (-1) <span class="strong"><strong>2</strong></span> <sup>(n-1)</sup> and the highest value is <span class="strong"><strong>2</strong></span> <sup>(n-1)</sup> - 1, where <span class="emphasis"><em>n</em></span>=number of bits. So, for a byte which is 8 bits long (1 byte is 8 bits), lowest value = (-1) <span class="strong"><strong>2</strong></span> <sup>8-1</sup> = -128</p>
+</td></tr></table></div>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="references_types"></a>6.3. References Types</h3></div></div></div>
+
+<p>The native types discussed in the previous section are called primitive types because they are part of the language definition. They are fixed at eight. We cannot add or define  new primitive types. Happily, Java allows us to create new types of our own. These user defined types are called reference types. We will not be discussing how to create and work with reference types in this chapter, we will defer  that discussion for later. But it is important to say that creation of new types involves writing classes and creating objects.</p>
+<p>The main difference between a reference and a primitive type is their size. Primitives cannot get any bigger than 8 bytes. They are scalar data and the biggest data type we can define is a long two’s complement integer. And that is an 8 byte integer. The size of a reference type on the other hand, cannot be determined as easily as a primitive’s because it is after all, a composite kind of data.</p>
+<div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/note.png" /></td><th align="left">Note</th></tr><tr><td align="left" valign="top">
+<p>Scalar value is one unit of data. Just like in algebra, a scalar value is a single number as opposed to either a vector or matrix which are composites</p>
+</td></tr></table></div>
+<p>
+<strong>Listing 6-3. </strong>
+
 </p><pre class="screen">int x = 95;
 int y = 50;</pre><p>
-</p><p>Listing 6-3 shows example of two primitive variables. <span class="emphasis"><em>X</em></span> contains a single data, which is 95 and <span class="emphasis"><em>Y</em></span> contains only the integer 50.</p><p><strong>Listing 6-4. </strong>
+
+</p>
+<p>Listing 6-3 shows example of two primitive variables. <span class="emphasis"><em>X</em></span> contains a single data, which is 95 and <span class="emphasis"><em>Y</em></span> contains only the integer 50.</p>
+<p>
+<strong>Listing 6-4. </strong>
+
 </p><pre class="screen">class Point {
   int x = 95;
   int y = 50
 }</pre><p>
-</p><p>Listing 6-4 shows how to define a new type called Point. It was made possible by aggregating two integer variables.</p><div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png" /></td><th align="left">Tip</th></tr><tr><td align="left" valign="top"><p>In case you are wondering, <span class="emphasis"><em>String</em></span> is a reference type. It is part of the JDK library. There is a full discussion of Strings in later chapters</p></td></tr></table></div></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="exercises_2"></a>6.4. Exercises</h3></div></div></div><div class="variablelist"><dl class="variablelist"><dt><span class="term"><span class="strong"><strong>Exercise 6-1</strong></span></span></dt><dd>Compute for the lowest value and highest value of long, short, byte and int</dd><dt><span class="term"><span class="strong"><strong>Exercise 6-2</strong></span></span></dt><dd>Make a program that creates variables for each of 8 primitive types and print out each one of them</dd></dl></div><p></p></div></div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="blocks.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="reserved_words_and_identifiers.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">5. Blocks </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 7. Reserved Words and Identifiers</td></tr></table></div></body></html>
+
+</p>
+<p>Listing 6-4 shows how to define a new type called Point. It was made possible by aggregating two integer variables.</p>
+<div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Tip"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Tip]" src="images/tip.png" /></td><th align="left">Tip</th></tr><tr><td align="left" valign="top">
+<p>In case you are wondering, <span class="emphasis"><em>String</em></span> is a reference type. It is part of the JDK library. There is a full discussion of Strings in later chapters</p>
+</td></tr></table></div>
+</div>
+<div class="section"><div class="titlepage"><div><div><h3 class="title"><a id="exercises_2"></a>6.4. Exercises</h3></div></div></div>
+
+<div class="variablelist"><dl class="variablelist"><dt><span class="term"><span class="strong"><strong>Exercise 6-1</strong></span></span></dt><dd>
+Compute for the lowest value and highest value of long, short, byte and int
+</dd><dt><span class="term"><span class="strong"><strong>Exercise 6-2</strong></span></span></dt><dd>
+Make a program that creates variables for each of 8 primitive types and print out each one of them
+</dd></dl></div>
+<p></p>
+</div>
+</div><div class="navfooter"><hr /><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="blocks.html">Prev</a> </td><td width="20%" align="center"> </td><td width="40%" align="right"> <a accesskey="n" href="reserved_words_and_identifiers.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">5. Blocks </td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top"> 7. Reserved Words and Identifiers</td></tr></table></div></body></html>

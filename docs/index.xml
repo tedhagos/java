@@ -4,7 +4,7 @@
 <article xmlns="http://docbook.org/ns/docbook" xmlns:xl="http://www.w3.org/1999/xlink" version="5.0" xml:lang="en">
 <info>
 <title>Java Basics</title>
-<date>2016-11-09</date>
+<date>2017-05-25</date>
 </info>
 <preface xml:id="preface">
 <title>Preface</title>
@@ -58,13 +58,22 @@
 </section>
 <section xml:id="hello_world">
 <title>Hello World</title>
-<simpara>Beginning programmers start their coding journey with the hello world program. While it may seem silly and quite lacking of any practical or commercial value, it does have an educational value. The simple hello world program will instruct us on (a) how to write and compile a source file (b) what gets executed first when a program is ran, and (c) how to run a Java program.</simpara>
-<simpara>There will be a couple of things in our first program that will not be immediately obvious nor will it make sense, but we won’t let those get in our way. We can safely side step some aspects of the example code and ignore them for now. We’ll circle back to them soon enough, in later chapters.</simpara>
-<section xml:id="writing_our_first_program">
-<title>Writing our first Program</title>
+<simpara>We&#8217;ll start with the basic task of writing a simple program. This may
+seem like a silly program that lacks any real-world value, but it does
+have an education value. This basic program will instruct us on (a)
+how to write and compile a source file (b) what gets executed first
+when a program is ran, and (c) how to execute a java program.</simpara>
+<simpara>There will be a couple of things that may not be immediately obvious
+nor will they make sense when we write the hello program but we won&#8217;t
+be bogged down by those details. At least not yet. We will side step
+some details and behaviors of the program but we will circle back to
+them in later chapters.</simpara>
+<section xml:id="our_firsrt_program">
+<title>Our firsrt program</title>
 <orderedlist numeration="arabic">
 <listitem>
-<simpara><emphasis role="strong">Choose a folder</emphasis> where you can save your program source files. The best folder is where you have read, write and execute permissions. Your home folder is a good place to start. Listings  4-1 and 4-2 shows how to create a directory named “practice” under your home folder.</simpara>
+<simpara><emphasis role="strong">Choose a folder</emphasis> where you will save the  program source files.
+The best location is where you have read, write and execute permissions. Your home folder is a good place to start. Listings  4-1 and 4-2 shows how to create a directory named “practice” under your home folder.</simpara>
 <formalpara>
 <title>Listing 4-1, Windows CLI</title>
 <para>
@@ -304,12 +313,31 @@ there</screen>
 <formalpara>
 <title>Listing 5-1, Hello.java</title>
 <para>
-<screen>class Hello
-{
-}</screen>
+<screen>class Hello <co xml:id="CO2-1"/> <co xml:id="CO2-2"/>
+{ <co xml:id="CO2-3"/>
+} <co xml:id="CO2-4"/></screen>
 </para>
 </formalpara>
-<simpara>Listing 5-1 above shows the basic structure a class. The reserved word <literal>class</literal> is used followed by an identifier which is the name of the class. The identifier or the class name is something that you will provide. It could be Person, BankAccount, Service, Dog etc. Naming your class will be entirely up to you. The class declaration is also accompanied by   a pair of French brackets or curly braces. The braces constitutes the body of the class. The class body is empty right  now because we haven’t done anything yet, but that’s okay. It’s perfectly legal to compile a class with an empty body, it won’t be very useful but it will compile.</simpara>
+<calloutlist>
+<callout arearefs="CO2-1">
+<para>reserved word</para>
+</callout>
+<callout arearefs="CO2-2">
+<para>class name, also known as class identifier</para>
+</callout>
+<callout arearefs="CO2-3">
+<para>opening curly brace, begins the class definition</para>
+</callout>
+<callout arearefs="CO2-4">
+<para>closing curly brace, ends the class definition</para>
+</callout>
+</calloutlist>
+<simpara>Listing 5-1 above shows the basic structure a class. The reserved word
+<literal>class</literal> is used followed by an identifier which is the name of the
+class, in the example above, that identifier is <emphasis role="strong">Hello</emphasis>. The
+identifier or the class name is something that you will provide. It
+could be Person, BankAccount, Service, Dog etc. Naming your class is entirely up to you.</simpara>
+<simpara>The class declaration is also accompanied by   a pair of French brackets or curly braces. The braces constitutes the body of the class. The class body is empty right  now because we haven’t done anything yet, but that’s okay. It’s perfectly legal to compile a class with an empty body, it won’t be very useful but it will compile.</simpara>
 </section>
 <section xml:id="comments">
 <title>Comments</title>
@@ -355,7 +383,7 @@ class Hello {
 <screen>class Hello {
 
   public static void main(String args[]) {
-    sayHello(); <co xml:id="CO2-1"/>
+    sayHello(); <co xml:id="CO3-1"/>
   }
 
   static void sayHello() {
@@ -365,7 +393,7 @@ class Hello {
 </para>
 </formalpara>
 <calloutlist>
-<callout arearefs="CO2-1">
+<callout arearefs="CO3-1">
 <para>Calls the function <literal>sayHello()</literal></para>
 </callout>
 </calloutlist>
@@ -380,22 +408,22 @@ class Hello {
 <screen>class Hello {
   public static void main(String []args) {
 
-    String word = null; <co xml:id="CO3-1"/>
-    word = "Hello World"; <co xml:id="CO3-2"/>
+    String word = null; <co xml:id="CO4-1"/>
+    word = "Hello World"; <co xml:id="CO4-2"/>
 
-    System.out.println(word);  <co xml:id="CO3-3"/>
+    System.out.println(word);  <co xml:id="CO4-3"/>
   }
 }</screen>
 </para>
 </formalpara>
 <calloutlist>
-<callout arearefs="CO3-1">
+<callout arearefs="CO4-1">
 <para>Declare the variable <emphasis role="strong">word</emphasis> to be of type <literal>String</literal></para>
 </callout>
-<callout arearefs="CO3-2">
+<callout arearefs="CO4-2">
 <para>Initialize the variable and set it to “Hello World”</para>
 </callout>
-<callout arearefs="CO3-3">
+<callout arearefs="CO4-3">
 <para>Retrieve the value of the variable and print it</para>
 </callout>
 </calloutlist>
@@ -458,14 +486,14 @@ class World {
 <para>
 <programlisting language="java" linenumbering="numbered">class Hello {
    public static void main(String []args) {
-      String word = "Hello" <co xml:id="CO4-1"/>
+      String word = "Hello" <co xml:id="CO5-1"/>
       System.out.println(word);
    }
 }</programlisting>
 </para>
 </formalpara>
 <calloutlist>
-<callout arearefs="CO4-1">
+<callout arearefs="CO5-1">
 <para>Missing semicolon</para>
 </callout>
 </calloutlist>
@@ -503,21 +531,21 @@ class World {
 <formalpara>
 <title>Listing 6-1</title>
 <para>
-<screen>String word; <co xml:id="CO5-1"/>
-word = "Hello world"; <co xml:id="CO5-2"/>
+<screen>String word; <co xml:id="CO6-1"/>
+word = "Hello world"; <co xml:id="CO6-2"/>
 System.out.println(word); // prints "Hello world"
-word = "Hello there"; <co xml:id="CO5-3"/>
+word = "Hello there"; <co xml:id="CO6-3"/>
 System.out.println(word); // prints "Hello there"</screen>
 </para>
 </formalpara>
 <calloutlist>
-<callout arearefs="CO5-1">
+<callout arearefs="CO6-1">
 <para>Declare a variable named <literal>word</literal></para>
 </callout>
-<callout arearefs="CO5-2">
+<callout arearefs="CO6-2">
 <para>Initialize the variable with the value "Hello World"</para>
 </callout>
-<callout arearefs="CO5-3">
+<callout arearefs="CO6-3">
 <para>Replace the contents of the variable</para>
 </callout>
 </calloutlist>
@@ -530,17 +558,17 @@ System.out.println(word); // prints "Hello there"</screen>
 <simpara>Java is a statically and strongly typed language. As such, when we create variables, we need to tell the compiler what kind of data it will hold so that it can (a) allocate the appropriate memory for it and (b) it can do all sorts of type checking on how we are using the variable. Type checking is very useful for programmers, even more so for beginning programmers. It helps us in so many ways, it will not let us do silly things  like the following.</simpara>
 <screen>int a = 10;
 String b = "10";
-a = b; <co xml:id="CO6-1"/>
+a = b; <co xml:id="CO7-1"/>
 
 String c = "Hello";
 String d = "World";
 String e = c + d;
-String f = c - d;<co xml:id="CO6-2"/></screen>
+String f = c - d;<co xml:id="CO7-2"/></screen>
 <calloutlist>
-<callout arearefs="CO6-1">
+<callout arearefs="CO7-1">
 <para>Incompatible types. You cannot assign a String to a number</para>
 </callout>
-<callout arearefs="CO6-2">
+<callout arearefs="CO7-2">
 <para>Subtraction cannot be performed on Strings</para>
 </callout>
 </calloutlist>
@@ -559,11 +587,11 @@ System.out.println(i);</screen>
 <title>Wrong usage</title>
 <para>
 <screen>int i = 1;
-System.out.println(i + j); <co xml:id="CO7-1"/></screen>
+System.out.println(i + j); <co xml:id="CO8-1"/></screen>
 </para>
 </formalpara>
 <calloutlist>
-<callout arearefs="CO7-1">
+<callout arearefs="CO8-1">
 <para>The j variable was not defined</para>
 </callout>
 </calloutlist>
@@ -629,13 +657,13 @@ System.out.println(i + j); <co xml:id="CO7-1"/></screen>
 <title>Listing 6-2</title>
 <para>
 <screen>boolean a = false;
-boolean b; <co xml:id="CO8-1"/>
+boolean b; <co xml:id="CO9-1"/>
 System.out.println(a); //prints false
 System.out.println(b); //prints false also</screen>
 </para>
 </formalpara>
 <calloutlist>
-<callout arearefs="CO8-1">
+<callout arearefs="CO9-1">
 <para>Default value for a boolean type is false</para>
 </callout>
 </calloutlist>
@@ -722,27 +750,27 @@ The compiler will try to make sense of what you have written. If the program is 
 <formalpara>
 <title>Listing 8-1</title>
 <para>
-<screen>class Person { <co xml:id="CO9-1"/>
-  String firstname = "John"; <co xml:id="CO9-2"/>
-  String lastname = "Doe"; <co xml:id="CO9-3"/>
+<screen>class Person { <co xml:id="CO10-1"/>
+  String firstname = "John"; <co xml:id="CO10-2"/>
+  String lastname = "Doe"; <co xml:id="CO10-3"/>
 
-  void printName() { <co xml:id="CO9-4"/>
+  void printName() { <co xml:id="CO10-4"/>
     System.out.println(lastname +  " , " + firstname);
   }
 }</screen>
 </para>
 </formalpara>
 <calloutlist>
-<callout arearefs="CO9-1">
+<callout arearefs="CO10-1">
 <para>keyword = <literal>class</literal>, identifier = <emphasis role="strong">Person</emphasis>(<emphasis>class</emphasis>)</para>
 </callout>
-<callout arearefs="CO9-2">
+<callout arearefs="CO10-2">
 <para>identifier = <emphasis role="strong">firstname</emphasis>(<emphasis>variable</emphasis>)</para>
 </callout>
-<callout arearefs="CO9-3">
+<callout arearefs="CO10-3">
 <para>identifier = <emphasis role="strong">lastname</emphasis>(<emphasis>variable</emphasis>)</para>
 </callout>
-<callout arearefs="CO9-4">
+<callout arearefs="CO10-4">
 <para>keyword = <literal>void</literal>, identifier = <emphasis role="strong">printName</emphasis>(<emphasis>method</emphasis>)</para>
 </callout>
 </calloutlist>
@@ -896,32 +924,32 @@ of the lazy dog</screen>
 <formalpara>
 <title>Listing 10-4, More printing</title>
 <para>
-<screen>System.out.println(1123456); <co xml:id="CO10-1"/>
+<screen>System.out.println(1123456); <co xml:id="CO11-1"/>
 System.out.println(10.2); //
 int a = 7, b=7;
-System.out.println(a); <co xml:id="CO10-2"/>
+System.out.println(a); <co xml:id="CO11-2"/>
 System.out.println();
 System.out.println();
 System.out.println();
-System.out.println(1 + 2); <co xml:id="CO10-3"/>
-System.out.println(a &gt; b); <co xml:id="CO10-4"/>
-System.out.println("1 + 2 = " + (1 + 2)); <co xml:id="CO10-5"/></screen>
+System.out.println(1 + 2); <co xml:id="CO11-3"/>
+System.out.println(a &gt; b); <co xml:id="CO11-4"/>
+System.out.println("1 + 2 = " + (1 + 2)); <co xml:id="CO11-5"/></screen>
 </para>
 </formalpara>
 <calloutlist>
-<callout arearefs="CO10-1">
+<callout arearefs="CO11-1">
 <para>Print a literal value</para>
 </callout>
-<callout arearefs="CO10-2">
+<callout arearefs="CO11-2">
 <para>Print a variable</para>
 </callout>
-<callout arearefs="CO10-3">
+<callout arearefs="CO11-3">
 <para>Evaluate literal expressions before printing</para>
 </callout>
-<callout arearefs="CO10-4">
+<callout arearefs="CO11-4">
 <para>Even boolean expressions are okay</para>
 </callout>
-<callout arearefs="CO10-5">
+<callout arearefs="CO11-5">
 <para>Complex expressions are also okay</para>
 </callout>
 </calloutlist>
